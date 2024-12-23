@@ -19,7 +19,7 @@
 // iii--Third Party...
 
 
-// =====01----File Based======
+// =====01----===============================File Based=========================(Transfers from one file to another)
 // File based module(Example 01)
 
 // const b = 8;
@@ -52,11 +52,12 @@
 
 
 
-// =====02 Build In======
+// =====02================================ Build In(Jo pehly sy e bny hoty hain modules hamara kam bs onhy use krna hota hai...)========================================================
 
 // Build In modules hmaray ps wo hoty hain jiny download nahi krna prta...
 
-// Example 01:(async function)=>Mjy execute m jitna mrzi time lgy lkin tum apny kam ko meri waja sy na roko ..
+// ==========Read Files =================================
+//////// Example 01:(async function)=>Mjy execute m jitna mrzi time lgy lkin tum apny kam ko meri waja sy na roko ..
 
 // const fs = require("fs");
 
@@ -80,7 +81,7 @@
 // or tu tu bhai execute o ja ..That's why mery pss ye pehly execite hoa hai...
 
 
-// Example 01:(synchronous function)=>Mjy execute m beshk sari zindgi lg jye lkin tmny tbtk next func ko execite ni krna jbtk m execute na o jao...
+//////// Example 01:(synchronous function)=>Mjy execute m beshk sari zindgi lg jye lkin tmny tbtk next func ko execite ni krna jbtk m execute na o jao...
 
 // const fs = require("fs");
 
@@ -90,8 +91,9 @@
 // console.log("Hi I am at first");
 
 
+// =========Write File==============================
+
 // Example 02:(asynchronous function)
-// =========Write File================
 
 // const fs = require("fs");
 // const a = "This is a new content"
@@ -112,6 +114,8 @@
 // console.log(data) // This will print the content of the file;
 // console.log("I am at last now...");
 
+
+// .....................SOME MORE BUILD IN MODULES ARE AS LIKE "PATH" & "OS" etc...................................
 
 // ============================Some More fun with "Path"============================//
 
@@ -136,4 +140,8 @@ const os = require("os");
 
 console.log(os.freemem());      //freemem jitni bachi hai wo return krdyga...
 console.log(os.hostname());     //hostname ka nam print krdyga jesy mai khud host hon tu "Noor" print krdyga..
+console.log(os.totalmem());     //totalmem dedyga...
 
+
+
+//===========================03 Third Party Modules===================================//
