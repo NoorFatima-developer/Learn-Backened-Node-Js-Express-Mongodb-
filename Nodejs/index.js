@@ -161,15 +161,22 @@ console.log(os.totalmem());     //totalmem dedyga...
 // console.log(pokemon.all());                 // ab ye sary pokemon ki list ko return krdygaa...
 
 
-// How can create Server for backened...
+// ==================How can create Server for backened========================...
 
-const http = require("http");
-
-http.createServer((req, res, next)=>{
+// const http = require("http");
+// http.createServer((req, res, next)=>{
         // req.url  sy hum request get krskty hain
         //res       sy hum response get krskty hain
         // next     ab next abi hum use ni krygy ye advanced chezo mai jahan pr hmry ps bht sari files or bht sary routes wagaira hon tb hum isko use krty hain...
-        
-})
 
+// })
+
+
+// Tu abi klye smj lety hain k hamary ps bs 2 chezain hai 1 req, 2sra res...
+
+const http = require("http");
+
+http.createServer((req, res)=>{
+
+})
 
