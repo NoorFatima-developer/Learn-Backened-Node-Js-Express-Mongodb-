@@ -145,3 +145,6 @@ console.log(os.totalmem());     //totalmem dedyga...
 
 
 //===========================03 Third Party Modules===================================//
+
+// Simple words mai third party modules wo hoty hain k kisi or ny code likha hai or hum osko download krk apny project mai use kr rhy hain
+// osko hum log third-part modules kehty hain...
