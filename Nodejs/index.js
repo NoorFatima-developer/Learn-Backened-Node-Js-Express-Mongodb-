@@ -154,10 +154,22 @@ console.log(os.totalmem());     //totalmem dedyga...
 
 // Ab mai isko use krskit o import krk like this:
 
-const pokemon = require("pokemon")
-console.log(pokemon.random());              //ab ye kisi b random pokemon ko print krdyga...
+// meny pokemon k sath ./ islye nahi lgya k yahan pr node_modules waly folder ki bt hori hai or wo already node folder k andr hai
+// aghr Node folder k andr ki bt hoti kahi tu mai ./file_name/packagename use krskit thie...
+// const pokemon = require("pokemon")
+// console.log(pokemon.random());              //ab ye kisi b random pokemon ko print krdyga...
 // console.log(pokemon.all());                 // ab ye sary pokemon ki list ko return krdygaa...
 
 
+// How can create Server for backened...
+
+const http = require("http");
+
+http.createServer((req, res, next)=>{
+        // req.url  sy hum request get krskty hain
+        //res       sy hum response get krskty hain
+        // next     ab next abi hum use ni krygy ye advanced chezo mai jahan pr hmry ps bht sari files or bht sary routes wagaira hon tb hum isko use krty hain...
+        
+})
 
 
