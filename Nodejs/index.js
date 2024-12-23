@@ -176,7 +176,11 @@ console.log(os.totalmem());     //totalmem dedyga...
 
 const http = require("http");
 
-http.createServer((req, res)=>{
+const server = http.createServer((req, res)=>{
+        // ye line end mai krni hai ku k response end m ata hai...
+        res.end("Working")
+});
 
-})
-
+server.listen(4000, "localhost", ()=>{
+    console.log("Server is running on http://localhost/4000");
+});
