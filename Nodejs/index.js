@@ -58,20 +58,20 @@
 
 // Example 01:(async function)=>Mjy execute m jitna mrzi time lgy lkin tum apny kam ko meri waja sy na roko ..
 
-const fs = require("fs");
+// const fs = require("fs");
 
-fs.readFile("./sample.txt", "utf-8", (err, data)=> {
-    if(err) {
-        throw err;
-    } else {
-        // Ya tu mai data ko String m convert krdo byusing toString() Method ya phr oper top mai "utf-8" likhdon
-        // Aghr ye ni krogi tu wo mjt data buffer ki form m return kryga...
-        console.log(data.toString());
-    }
-})
+// fs.readFile("./sample.txt", "utf-8", (err, data)=> {
+//     if(err) {
+//         throw err;
+//     } else {
+//         // Ya tu mai data ko String m convert krdo byusing toString() Method ya phr oper top mai "utf-8" likhdon
+//         // Aghr ye ni krogi tu wo mjt data buffer ki form m return kryga...
+//         console.log(data.toString());
+//     }
+// })
 
 
-console.log("Hi I am at first");
+// console.log("Hi I am at first");
 
 
 // Ab aghr mai console pr dekhogi tu ye "Hi I m at first" pehly print hoa hoga halank ye bdmai likha hai..
@@ -81,8 +81,7 @@ console.log("Hi I am at first");
 
 
 // Example 01:(synchronous function)=>Mjy execute m beshk sari zindgi lg jye lkin tmny tbtk next func ko execite ni krna jbtk m execute na o jao...
-
-
+const fs = require("fs");
 
 fs.readFileSync("./sample.txt", "utf-8", (err, data)=> {
     if(err) {
