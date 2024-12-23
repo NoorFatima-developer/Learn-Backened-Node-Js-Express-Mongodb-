@@ -11,3 +11,7 @@ console.log(window);
 // Learn Node js Now:
 
 // Node js k andr me function banao, ya object banano, ya variable banao hr chez module hai node js k andr...
+
+// Ab Modules different types k hoty hain:
+
+// i---File based module(Transfer from one file to another)
