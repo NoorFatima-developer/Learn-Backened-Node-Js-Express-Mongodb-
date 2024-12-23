@@ -81,3 +81,18 @@ console.log("Hi I am at first");
 
 
 // Example 01:(synchronous function)=>Mjy execute m beshk sari zindgi lg jye lkin tmny tbtk next func ko execite ni krna jbtk m execute na o jao...
+
+
+
+fs.readFileSync("./sample.txt", "utf-8", (err, data)=> {
+    if(err) {
+        throw err;
+    } else {
+        // Ya tu mai data ko String m convert krdo byusing toString() Method ya phr oper top mai "utf-8" likhdon
+        // Aghr ye ni krogi tu wo mjt data buffer ki form m return kryga...
+        console.log(data.toString());
+    }
+})
+
+
+console.log("Hi I am at first");
