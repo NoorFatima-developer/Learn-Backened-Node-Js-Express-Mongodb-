@@ -53,3 +53,17 @@ export default d;
 
 
 // =====02 Build In======
+
+// Build In modules hmaray ps wo hoty hain jiny download nahi krna prta...
+
+// Example 01:
+
+const fs = require("fs");
+
+fs.readFile("./sample.txt", (err, data)=> {
+    if(err) {
+        console.log(err);
+    } else {
+        console.log(data.toString());
+    }
+})
