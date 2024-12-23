@@ -118,6 +118,9 @@
 const path = require("path");
 const extension_name = path.extname("/node/index.js")
 const basename = path.basename("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>")
+const directory_name = path.dirname("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>")
 
 console.log(extension_name);        // .js ==>File ki extension bata daiga..
 console.log(basename);              // Nodejs ==> Currently jis folder m hai oss folder ka nam bata daiga...
+
+console.log(directory_name);         // D:/Backened(Node JS, Express, Mongo Db)/Nodejs/ ==> Oss folder path bata daiga...
