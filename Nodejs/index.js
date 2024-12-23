@@ -129,4 +129,4 @@ console.log(directory_name);         // D:/Backened(Node JS, Express, Mongo Db)/
 console.log(path_join);             // Jo path meny dea hai osk sath "/6pp" ko b add krdyga...
 
 
-//===========================Some More Fun with os===================================//
+//===========================Some More Fun with "os"===================================//
