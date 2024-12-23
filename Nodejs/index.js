@@ -69,3 +69,13 @@ fs.readFile("./sample.txt", "utf-8", (err, data)=> {
         console.log(data.toString());
     }
 })
+
+
+console.log("Hi I am at first");
+
+
+// Ab aghr mai console pr dekhogi tu ye "Hi I m at first" pehly print hoa hoga halank ye bdmai likha hai..
+
+// Iski Reason ye hai k ye jo oper meny readfile wala callback fun banaya hai ye asyn hai 
+// or 1 async func wo hota hai k aghr osko kam krny m ya process mai jitna mrzi time lgy lkin wo agly ko kehta hai tu mera wait na kr
+// or tu tu bhai execute o ja ..That's why mery pss ye pehly execite hoa hai...
