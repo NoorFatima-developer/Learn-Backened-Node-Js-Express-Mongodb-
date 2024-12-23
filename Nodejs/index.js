@@ -126,4 +126,4 @@ console.log(basename);              // Nodejs ==> Currently jis folder m hai oss
 
 console.log(directory_name);         // D:/Backened(Node JS, Express, Mongo Db)/Nodejs/ ==> Pura path bata daiga and jis directory k andr hai..
 
-console.log(path_join);             // 
+console.log(path_join);             // Jo path meny dea hai osk sath "/6pp" ko b add krdyga...
