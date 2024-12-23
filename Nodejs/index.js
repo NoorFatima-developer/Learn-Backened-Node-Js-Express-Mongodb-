@@ -15,7 +15,11 @@
 // Ab Modules different types k hoty hain:
 
 // i---File based module(Transfer from one file to another)
+// ii--Build In
+// iii--Third Party...
 
+
+// =====01----File Based======
 // File based module(Example 01)
 
 // const b = 8;
@@ -42,6 +46,10 @@ const d = {
          
     }
 }
+// module.exports = b;
+// module.exports = d;
+export default d;
 
-module.exports = b;
 
+
+// =====02 Build In======
