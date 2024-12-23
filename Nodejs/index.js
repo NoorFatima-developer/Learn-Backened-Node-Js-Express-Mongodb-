@@ -81,17 +81,33 @@
 
 
 // Example 01:(synchronous function)=>Mjy execute m beshk sari zindgi lg jye lkin tmny tbtk next func ko execite ni krna jbtk m execute na o jao...
+
+// const fs = require("fs");
+
+// const a = fs.readFileSync("./sample.txt", "utf-8")
+
+// console.log(a.toString()) // This will print the content of the file;
+// console.log("Hi I am at first");
+
+
+// Example 02:(asynchronous function)
+// =========Write File================
+
+// const fs = require("fs");
+// const a = "This is a new content"
+// fs.writeFile("./writefile.txt", a , () => {
+//     console.log("written");
+// })
+
+// console.log("I am first");
+
+
+// Example 02:(Synchronous function)
+
 const fs = require("fs");
+const a = "This is my new content"
+fs.writeFileSync("./writefile.txt", a )
+const data = fs.readFileSync("./writefile.txt", "utf-8")
 
-fs.readFileSync("./sample.txt", "utf-8", (err, data)=> {
-    if(err) {
-        throw err;
-    } else {
-        // Ya tu mai data ko String m convert krdo byusing toString() Method ya phr oper top mai "utf-8" likhdon
-        // Aghr ye ni krogi tu wo mjt data buffer ki form m return kryga...
-        console.log(data.toString());
-    }
-})
-
-
-console.log("Hi I am at first");
+console.log(data) // This will print the content of the file;
+console.log("I am at last now...");
