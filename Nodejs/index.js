@@ -180,9 +180,30 @@ const hostname = "localhost";
 
 const server = http.createServer((req, res)=>{
         // ye line end mai krni hai ku k response end m ata hai...
-        res.end("<h1>Hello World</h1>")
+
+        if(req.url === "/"){
+            res.end("<h1>HOME PAGE</h1>")
+        }
+
+        if(req.url === "/about"){
+            res.end("<h1>ABOUT PAGE</h1>")
+        }
+        
+        else if(req.url === "/contact"){
+            res.end("<h1>Contact PAGE</h1>")
+        }
+        else if(req.url === "/contact"){
+            res.end("<h1>CONTACT PAGE</h1>")
+        }
+        else{
+            res.statusCode = 404;
+            res.end("<h1>Page Not Found</h1>")
+        }
+
 });
 
+
+// Listen to port and hostname;
 server.listen(PORT, hostname, ()=>{
     console.log(`Server is running on http://${hostname}:${PORT}`);
 });
