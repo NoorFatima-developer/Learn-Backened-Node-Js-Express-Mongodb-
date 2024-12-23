@@ -26,16 +26,20 @@ console.log(c);
 
 const d = {
     average: (a, b) => {
-        return ((a + b) / 2);
+        console.log((a + b) / 2);
+         
     },
     multiply: (a, b) => {
-        return (a * b);
+        console.log((a * b));
+         
     },
     squareRoot: (a) => {
-        return Math.sqrt(a);
+        console.log(Math.sqrt(a));
+         
     },
     percent: (a,b) => {
-        return ((a / b) * 100);
+        console.log(((a / b) * 100));
+         
     }
 }
 
