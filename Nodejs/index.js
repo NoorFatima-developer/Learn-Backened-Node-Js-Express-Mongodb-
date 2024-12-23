@@ -113,9 +113,11 @@
 // console.log("I am at last now...");
 
 
-// ============================Some More fun with these============================//
+// ============================Some More fun with "Path"============================//
 
+// Import path and then I will use all paths......
 const path = require("path");
+
 const extension_name = path.extname("/node/index.js")
 const basename = path.basename("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>")
 const directory_name = path.dirname("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>")
@@ -123,7 +125,5 @@ const path_join = path.join("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>" + 
 
 console.log(extension_name);        // .js ==>File ki extension bata daiga..
 console.log(basename);              // Nodejs ==> Currently jis folder m hai oss folder ka nam bata daiga...
-
 console.log(directory_name);         // D:/Backened(Node JS, Express, Mongo Db)/Nodejs/ ==> Pura path bata daiga and jis directory k andr hai..
-
 console.log(path_join);             // Jo path meny dea hai osk sath "/6pp" ko b add krdyga...
