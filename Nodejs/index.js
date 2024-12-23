@@ -130,3 +130,10 @@ console.log(path_join);             // Jo path meny dea hai osk sath "/6pp" ko b
 
 
 //===========================Some More Fun with "os"===================================//
+
+// import os and then will use it further...
+const os = require("os");
+
+console.log(os.freemem());      //freemem jitni bachi hai wo return krdyga...
+console.log(os.hostname());
+
