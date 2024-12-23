@@ -135,5 +135,5 @@ console.log(path_join);             // Jo path meny dea hai osk sath "/6pp" ko b
 const os = require("os");
 
 console.log(os.freemem());      //freemem jitni bachi hai wo return krdyga...
-console.log(os.hostname());
+console.log(os.hostname());     //hostname ka nam print krdyga jesy mai khud host hon tu "Noor" print krdyga..
 
