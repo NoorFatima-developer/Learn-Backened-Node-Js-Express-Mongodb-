@@ -1,5 +1,5 @@
-const a = 20
-console.log(a/10);
+// const a = 20
+// console.log(a/10);
 
 // Ab ye backend klye kam ni kryga ku k backend m document.getElementById ya iss trhan ki chezain ni hoti 
 // ye specifically front end klye hoti hai browser pr work krygi but node js pr jb m run krogi terminal pr tu gives me error
@@ -18,9 +18,9 @@ console.log(a/10);
 
 // File based module(Example 01)
 
-const b = 8;
-const c = 80;
-console.log(c);
+// const b = 8;
+// const c = 80;
+// console.log(c);
 
 // Example 02:
 
