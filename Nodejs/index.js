@@ -175,12 +175,14 @@ console.log(os.totalmem());     //totalmem dedyga...
 // Tu abi klye smj lety hain k hamary ps bs 2 chezain hai 1 req, 2sra res...
 
 const http = require("http");
+const PORT = 2000;
+const hostname = "localhost";
 
 const server = http.createServer((req, res)=>{
         // ye line end mai krni hai ku k response end m ata hai...
         res.end("Working")
 });
 
-server.listen(4000, "localhost", ()=>{
-    console.log("Server is running on http://localhost/4000");
+server.listen(PORT, hostname, ()=>{
+    console.log("Server is running on http://localhost:4000");
 });
