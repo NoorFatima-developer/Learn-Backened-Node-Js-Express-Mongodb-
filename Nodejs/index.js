@@ -28,27 +28,27 @@
 
 // Example 02:
 
-const d = {
-    average: (a, b) => {
-        console.log((a + b) / 2);
+// const d = {
+//     average: (a, b) => {
+//         console.log((a + b) / 2);
          
-    },
-    multiply: (a, b) => {
-        console.log((a * b));
+//     },
+//     multiply: (a, b) => {
+//         console.log((a * b));
          
-    },
-    squareRoot: (a) => {
-        console.log(Math.sqrt(a));
+//     },
+//     squareRoot: (a) => {
+//         console.log(Math.sqrt(a));
          
-    },
-    percent: (a,b) => {
-        console.log(((a / b) * 100));
+//     },
+//     percent: (a,b) => {
+//         console.log(((a / b) * 100));
          
-    }
-}
+//     }
+// }
 // module.exports = b;
 // module.exports = d;
-export default d;
+// export default d;
 
 
 
@@ -60,10 +60,12 @@ export default d;
 
 const fs = require("fs");
 
-fs.readFile("./sample.txt", (err, data)=> {
+fs.readFile("./sample.txt", "utf-8", (err, data)=> {
     if(err) {
-        console.log(err);
+        throw err;
     } else {
+        // Ya tu mai data ko String m convert krdo byusing toString() Method ya phr oper top mai "utf-8" likhdon
+        // Aghr ye ni krogi tu wo mjt data buffer ki form m return kryga...
         console.log(data.toString());
     }
 })
