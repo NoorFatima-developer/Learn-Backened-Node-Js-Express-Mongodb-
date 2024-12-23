@@ -104,10 +104,20 @@
 
 // Example 02:(Synchronous function)
 
-const fs = require("fs");
-const a = "This is my new content"
-fs.writeFileSync("./writefile.txt", a )
-const data = fs.readFileSync("./writefile.txt", "utf-8")
+// const fs = require("fs");
+// const a = "This is my new content"
+// fs.writeFileSync("./writefile.txt", a )
+// const data = fs.readFileSync("./writefile.txt", "utf-8")
 
-console.log(data) // This will print the content of the file;
-console.log("I am at last now...");
+// console.log(data) // This will print the content of the file;
+// console.log("I am at last now...");
+
+
+// ============================Some More fun with these============================//
+
+const path = require("path");
+const extension_name = path.extname("/node/index.js")
+const basename = path.basename("D:/Backened(Node JS, Express, Mongo Db)/Nodejs>")
+
+console.log(extension_name);        // .js ==>File ki extension bata daiga..
+console.log(basename);              // Nodejs ==> Currently jis folder m hai oss folder ka nam bata daiga...
