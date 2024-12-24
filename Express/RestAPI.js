@@ -14,28 +14,20 @@ const bodyParser = require("body-parser")
 
 // 02--call express:
 const app = express();
-const port = 5000;
+const port = 2000;
 // Lkin jbtk body parser ko use ni krygy wo kam ni kryga...so use..
 app.use(bodyParser.urlencoded({extended: false}));
  
 
 // 04-- Get Express:(GET METHOD)
-app.get("/", (req, res)=>{
-// res.send("HOME PAGE");
-// Mer ps index.html file hai and meny wo file bejni hai home page ki bjeye tu i will use this;
-    res.sendFile(Path.join(__dirname, "/index.html"));
- });
-
-
-app.post("/api/v1/userdata", (req, res)=> {
-   
+app.get("/api/v1/userdata", (req, res)=>{
     res.json({
         name: "Noor!",
         email: "noor@gmail.com",
         password: "hexed"
     })
-    
-})
+ });
+
 
 // 03--Listen:
 app.listen(port, ()=>{
