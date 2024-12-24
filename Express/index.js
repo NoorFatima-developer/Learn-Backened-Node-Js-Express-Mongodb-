@@ -9,11 +9,15 @@
 // 01--Import Express:
 const express = require("express");
 // Path ko b import krna pryga...
-const Path = require("path");
+const Path = require("path")
+// import body-parser(but must instakk before impor) =>npm i body-parser
+const bodyParser = require("body-parser")
 
 // 02--call express:
- const app = express();
- const port = 5000;
+const app = express();
+const port = 5000;
+// Lkin jbtk body parser ko use ni krygy wo kam ni kryga...so use..
+app.use(bodyParser.urlencoded({extended: false}));
  
 
 // 04-- Get Express:(GET METHOD)
@@ -40,8 +44,10 @@ app.post("/api/v1/login", (req, res)=> {
 
     // const username = req.body.name
     // console.log(username);
+    // console.log("name");
     res.send("<h1>DONE</h1>")
-    console.log("name");
+    console.log(req.body);
+    
     
 })
 
