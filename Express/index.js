@@ -11,6 +11,7 @@ const express = require("express");
 // Path ko b import krna pryga...
 const Path = require("path")
 // import body-parser(but must instakk before impor) =>npm i body-parser
+// Body parser krny ka mqsd ye hai k m form submit hony pr jo data POST req k zareye url k andr dekh parahi hon osko m web browser pr b dekh skon...
 const bodyParser = require("body-parser")
 
 // 02--call express:
@@ -45,8 +46,8 @@ app.post("/api/v1/login", (req, res)=> {
     // const username = req.body.name
     // console.log(username);
     // console.log("name");
-    res.send("<h1>DONE</h1>")
-    console.log(req.body);
+res.send(`<h1>DONE Mr. ${req.body.name}</h1> <h2>${req.body.email}</h2> <h3>${req.body.password}`)
+    console.log(req.body);      //ab console m mai form mai brha hoa data dekhs kti hon..
     
     
 })
