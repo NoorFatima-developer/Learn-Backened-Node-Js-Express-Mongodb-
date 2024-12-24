@@ -23,10 +23,17 @@ app.get("/contact", r=(req, res)=>{
     res.send("CONTACT PAGE");
  });
 
-
-
 // 03--Listen:
 app.listen(port, ()=>{
     console.log(`Server is working on port: ${port}`);
     
 })
+
+
+
+// Ab get Method ko smjny klye hmu CRUD METHOD SMJNA HOGA PEHLY..
+// C->CREATE, R->READ, U->UPDATE, D->DELETE....
+
+
+// Ab aty hain get ki trf ...
+// GET -> MEANS READ, POST -> MEANS CREATE, PUT -> UPDATE, DELETE-> DELETE..
