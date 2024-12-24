@@ -179,8 +179,8 @@ const http = require("http");
 // Read index1.html file:
 const fs = require("fs")
 
-const PORT = 2000;
-const hostname = "localhost";
+const PORT = process.env.PORT 
+// const hostname = "localhost";
 const home = fs.readFileSync("./index1.html", "utf-8")
 
 
@@ -221,8 +221,11 @@ const server = http.createServer((req, res)=>{
 
 
 // Listen to port and hostname;
-server.listen(PORT, hostname, ()=>{
-    console.log(`Server is running on http://${hostname}:${PORT}`);
+server.listen(PORT,  ()=>{
+    console.log(`Server is running`);
 });
 
 // Ab ye meri local host pr chlrha hai ab I need to deploy it...
+
+// ....Ab deploy klye package.json k andr ye ("start": "node index.js",) dalna pryga and fer jb b mai npm start krogi local host pr
+// chljyega...
