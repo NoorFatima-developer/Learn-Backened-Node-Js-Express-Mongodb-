@@ -3,12 +3,14 @@
 // Express ki hmy need islye pri k jo kam hum nodejs sy server create krny mai 100 lino sy kr rhy thy wo yahan pr 20lines mai hoga
 // Islye we need to use Express..
 
+
+// 01--Import Express:
 const express = require("express");
+// 02--call express:
  const app = express();
  const port = 3000;
 
-//  Listen:
-
+// 03--Listen:
 app.listen(port, ()=>{
     console.log(`Server is working on port: ${port}`);
     
