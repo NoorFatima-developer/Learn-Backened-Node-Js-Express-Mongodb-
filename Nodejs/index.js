@@ -172,6 +172,7 @@ console.log(os.totalmem());     //totalmem dedyga...
 // })
 
 
+// ==============SERVER CREATE========================
 // Tu abi klye smj lety hain k hamary ps bs 2 chezain hai 1 req, 2sra res...
 
 const http = require("http");
@@ -186,7 +187,6 @@ const home = fs.readFileSync("./index1.html", "utf-8")
 // It will return the directory name as well as file_name ...
 console.log(__dirname);
 console.log(__filename);
-
 
 
 const server = http.createServer((req, res)=>{
@@ -224,3 +224,5 @@ const server = http.createServer((req, res)=>{
 server.listen(PORT, hostname, ()=>{
     console.log(`Server is running on http://${hostname}:${PORT}`);
 });
+
+// Ab ye meri local host pr chlrha hai ab I need to deploy it...
