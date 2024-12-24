@@ -10,17 +10,48 @@
             background-color: rgb(61, 61, 61);
             color: white;
             height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         body {
             margin: 0%;
         }
+
+        .both {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1;
+        }
+
+        .about {
+            background-color: rgb(240, 240, 240);
+            color: black;
+            height: 100vh;
+            width: 50%;
+            
+        }
+        .contact {
+            background-color: rgb(240, 240, 240);
+            color: black;
+            height: 100vh;
+            width: 50%;
+        }
     </style>
 </head>
 <body>
-
     <div class="home1">HOME SECTION</div>
-    <div>I am Noor </div>
-    
+   <div class="both">
+    <div class="about">
+        <h1>ABOUT SECTION</h1>
+    </div>
+    <div class="contact">
+        <h1>CONTACT SECTION</h1>
+    </div>
+   </div>
 </body>
 </html>

@@ -183,12 +183,16 @@ const hostname = "localhost";
 const home = fs.readFileSync("./index1.html", "utf-8")
 
 
-// It will return the file_name as well... 
+// It will return the directory name as well as file_name ...
+console.log(__dirname);
 console.log(__filename);
 
 
 
 const server = http.createServer((req, res)=>{
+
+    res.setHeader("Content-Type", "text/html"); // Set response type as HTML
+
         // ye line end mai krni hai ku k response end m ata hai...
 
         if(req.url === "/"){
@@ -196,11 +200,14 @@ const server = http.createServer((req, res)=>{
         }
 
         if(req.url === "/about"){
-            return res.end("<h1>ABOUT PAGE</h1>")
+        // Extract only the "ABOUT SECTION" from the HTML file...Mai html andr krny ki bjye about klye aleda sy b file banan skti thie, and wo zda convinient...
+        const aboutSection = home.split('<div class="about">')[1].split("</div>")[0];
+        return res.end(`<div class="about">${aboutSection}</div>`);
         }
         
         else if(req.url === "/contact"){
-            return res.end("<h1>Contact PAGE</h1>")
+        const contactSection = home.split('<div class="contact">')[1].split("</div>")[0];
+        return res.end(`<div class="about">${contactSection}</div>`);
         }
         else if(req.url === "/contact"){
             return res.end("<h1>CONTACT PAGE</h1>")
