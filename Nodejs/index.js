@@ -175,29 +175,39 @@ console.log(os.totalmem());     //totalmem dedyga...
 // Tu abi klye smj lety hain k hamary ps bs 2 chezain hai 1 req, 2sra res...
 
 const http = require("http");
+// Read index1.html file:
+const fs = require("fs")
+
 const PORT = 2000;
 const hostname = "localhost";
+const home = fs.readFileSync("./index1.html", "utf-8")
+
+
+// It will return the file_name as well... 
+console.log(__filename);
+
+
 
 const server = http.createServer((req, res)=>{
         // ye line end mai krni hai ku k response end m ata hai...
 
         if(req.url === "/"){
-            res.end("<h1>HOME PAGE</h1>")
+            return res.end(home)
         }
 
         if(req.url === "/about"){
-            res.end("<h1>ABOUT PAGE</h1>")
+            return res.end("<h1>ABOUT PAGE</h1>")
         }
         
         else if(req.url === "/contact"){
-            res.end("<h1>Contact PAGE</h1>")
+            return res.end("<h1>Contact PAGE</h1>")
         }
         else if(req.url === "/contact"){
-            res.end("<h1>CONTACT PAGE</h1>")
+            return res.end("<h1>CONTACT PAGE</h1>")
         }
         else{
             res.statusCode = 404;
-            res.end("<h1>Page Not Found</h1>")
+            return res.end("<h1> 404 Page Not Found</h1>")
         }
 
 });
