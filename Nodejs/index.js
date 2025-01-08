@@ -176,9 +176,9 @@ console.log(os.totalmem());     //totalmem dedyga...
 // Tu abi klye smj lety hain k hamary ps bs 2 chezain hai 1 req, 2sra res...
 
 const http = require("http");
+
 // Read index1.html file:
 const fs = require("fs")
-
 const PORT = process.env.PORT 
 // const hostname = "localhost";
 const home = fs.readFileSync("./index1.html", "utf-8")
