@@ -19,7 +19,6 @@ console.log(generateLovePercent());
 import * as obj from "./feature.js";
 console.log(obj.gfName2);
 
-
 // 01---Create Server...
 // req , res k bagair ye local host pr ni chlyga...
 const server = http.createServer( (req, res)=> {
@@ -52,3 +51,7 @@ server.listen(3000, () => {
 // Note:
 // Everything in nodejs is module... and there are three types of modules in nodejs..and hr 1 ko meny
 // briefly explain nd solve kea hai index.js k andr...
+
+// Async k andr wo wait ni krta or next line mai move krta jta hai.
+// lkin sync k andr wo wo wait krta hai jbtk wo data load na o jye
+// and by default hmry ps async data hota hai...
