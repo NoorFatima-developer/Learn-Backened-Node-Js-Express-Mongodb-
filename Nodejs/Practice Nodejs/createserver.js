@@ -5,9 +5,12 @@
 // const gfName = require("./feature.js");
 // New way to import...
 import http from "http";
+// import without func..
 import gfName, {gfName1, gfName2} from "./feature.js";
+// import with func...
 import { generateLovePercent } from "./feature01.js";
 import fs from "fs";
+import path from "path";
 
 // Aghr yahan read file krna hau tu osko sync banan pryga..
 // const data = fs.readFileSync("./readfile.html")
@@ -17,6 +20,10 @@ console.log(gfName1);
 console.log(gfName2);
 
 console.log(generateLovePercent());
+console.log(path.extname("/home/index.html"));
+console.log(path.dirname("/home/random/index.html"));
+
+
 
 // Object sy b access krskty hain like this: and aghr gfName m as an obj export hota tu hum osko b as an obj import krk access krskty thy...
 import * as obj from "./feature.js";
@@ -25,10 +32,13 @@ console.log(obj.gfName2);
 // 01---Create Server...
 // req , res k bagair ye local host pr ni chlyga...
 const server = http.createServer( (req, res)=> {
+    console.log(req.method);
+    
     // res.end("<h1>Create Server</h1>");
     if(req.url === "/"){
         fs.readFile("./readfile.html", (err, data) => {
-            res.end(data)
+            // res.end(data)
+            res.end("data")
         })
     }
     else if(req.url === "/about"){
