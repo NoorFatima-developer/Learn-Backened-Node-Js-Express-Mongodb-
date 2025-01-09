@@ -43,7 +43,7 @@ app.use("/api/v1",router)
 // But problem is that k aghr mjy bht sari api's ka data handle krna hoga tu kea tb mai app.post wala func bar barlikhogi kea?
 // Tu bht sara mess up hojyega tu iss sy bachny klye hum log 1 separate file m iss post waly ko aleda sy handle krlety hain...
 // app.post("/api/v1/register", (req, res) =>{
-
+._router..
 //     const username = req.body.name;
 //     const useremail = req.body.email;
 //     const userpassword = req.body.password;
