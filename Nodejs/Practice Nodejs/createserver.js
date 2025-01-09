@@ -1,13 +1,25 @@
+// old way to import http...
+
 // const http = require("http");
 // import filebased module and use it...
 // Old way to import...
 // const gfName = require("./feature.js");
+
 // New way to import...
-
 import http from "http";
-import gfName from "./feature.js";
-console.log(gfName);
+import gfName, {gfName1, gfName2} from "./feature.js";
+import { generateLovePercent } from "./feature01.js";
 
+console.log(gfName);
+console.log(gfName1);
+console.log(gfName2);
+
+console.log(generateLovePercent());
+
+// Object sy b access krskty hain like this: and aghr gfName m as an obj export hota tu hum osko b as an obj import krk access krskty thy...
+
+import * as obj from "./feature.js";
+console.log(obj.gfName2);
 
 
 // 01---Create Server...
@@ -18,7 +30,7 @@ const server = http.createServer( (req, res)=> {
         res.end("<h1>Home Page</h1>");
     }
     else if(req.url === "/about"){
-        res.end("<h1>About Page</h1>");
+        res.end(`<h1>Love is ${generateLovePercent()}</h1>`);
     }
     else if(req.url === "/contact"){
         res.end("<h1>Contact Page</h1>");
