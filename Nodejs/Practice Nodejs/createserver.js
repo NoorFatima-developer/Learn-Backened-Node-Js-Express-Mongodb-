@@ -25,7 +25,9 @@ console.log(obj.gfName2);
 const server = http.createServer( (req, res)=> {
     // res.end("<h1>Create Server</h1>");
     if(req.url === "/"){
-        res.end("<h1>Home Page</h1>");
+        fs.readFile("./readfile.js", (err, home) => {
+            res.end(home)
+        })
     }
     else if(req.url === "/about"){
         res.end(`<h1>Love is ${generateLovePercent()}</h1>`);
