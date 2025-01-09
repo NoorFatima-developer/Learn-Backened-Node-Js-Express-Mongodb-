@@ -9,6 +9,9 @@ import gfName, {gfName1, gfName2} from "./feature.js";
 import { generateLovePercent } from "./feature01.js";
 import fs from "fs";
 
+// Aghr yahan read file krna hau tu osko sync banan pryga..
+// const data = fs.readFileSync("./readfile.html")
+
 console.log(gfName);
 console.log(gfName1);
 console.log(gfName2);
