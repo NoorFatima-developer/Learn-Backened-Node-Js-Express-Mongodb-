@@ -25,8 +25,8 @@ console.log(obj.gfName2);
 const server = http.createServer( (req, res)=> {
     // res.end("<h1>Create Server</h1>");
     if(req.url === "/"){
-        fs.readFile("./readfile.js", (err, home) => {
-            res.end(home)
+        fs.readFile("./readfile.html", (err, data) => {
+            res.end(data)
         })
     }
     else if(req.url === "/about"){
