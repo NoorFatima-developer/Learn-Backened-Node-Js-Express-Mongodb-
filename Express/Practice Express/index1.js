@@ -4,9 +4,13 @@ import path from 'path';
 const app = express();
 
 // 04--(ii) Render static file..
-// And ye 1 middleware hai isley hum isko app.use k andr use krygy..
-app.use(express.static(path.join(path.resolve(), "public")))
 
+// Using Middlewares..
+// And ye 1 middleware hai isley hum isko app.use k andr use krygy..
+// ----Ye middleware get mthod klye use hoe hai...
+app.use(express.static(path.join(path.resolve(), "public")))
+// ----Ye middleware post method klye use hoe hai...
+app.use(express.urlencoded({extended: true}))
 
 // 04--(i) Setting up view engine...
 
@@ -34,6 +38,12 @@ app.get('/', (req, res) => {
     // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
     // res.sendFile("index.html")
 
+})
+
+
+app.post("/", (req, res) => {
+    console.log(req.body);
+    
 })
 
 // 02-- listen server...
