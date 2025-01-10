@@ -50,7 +50,9 @@ app.get("/sucess", (req, res) => {
 })
 
 // Using POST method to receive data from form.
-app.post("/", (req, res) => {
+
+// and by default tu / e hoga lkin aghr meny /contact krna hai tu mjy action mai b yhi krna hoga..
+app.post("/contact", (req, res) => {
     console.log(req.body);
     console.log(req.body.name);
 
@@ -59,12 +61,9 @@ app.post("/", (req, res) => {
     // Render another file...lkin yahan render krny ki bjeye hum get oper krygy...get method mai...
     // res.render("sucess")
     res.redirect("/sucess");
-
 })
 
-
 // Ab me chahti o k jesy e m /users pr jao tu mery ps user ka data show o..
-
 app.get("/users", (req, res) => {
     res.json({
     users})
