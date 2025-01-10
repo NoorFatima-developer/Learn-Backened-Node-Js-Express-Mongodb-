@@ -1,7 +1,11 @@
 import express from 'express';
+// ye public m jo html thie mnz sttaic file send krny klye path use kea hau..
 import path from 'path';
 // 01-- create server...
 const app = express();
+// Push data to array(ye form ki prac klye task hai)
+
+const users = [];
 
 // 04--(ii) Render static file..
 
@@ -13,7 +17,6 @@ app.use(express.static(path.join(path.resolve(), "public")))
 app.use(express.urlencoded({extended: true}))
 
 // 04--(i) Setting up view engine...
-
 app.set("view engine", "ejs");
 
 // 03--- Ab data send krny klye hmy if else conditions ni lagani prygi jesy hum node js mai lagaty thy wo hum yahan pr bach jygy on conditions sy...
@@ -43,6 +46,12 @@ app.get('/', (req, res) => {
 // Using POST method to receive data from form.
 app.post("/", (req, res) => {
     console.log(req.body);
+    console.log(req.body.name);
+
+    // Push data to array...
+    users.push({username: req.body.name, email: req.body.email});
+    // Render another file...
+    res.render("sucess")
     
 })
 
