@@ -69,8 +69,6 @@ app.get("/users", (req, res) => {
     users})
 })
 
-// 01-- create server...
-
 // 02-- listen server...
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');
