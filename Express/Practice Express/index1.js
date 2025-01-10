@@ -21,3 +21,8 @@ app.listen(3000, () => {
     console.log('Server is listening on port 3000');
 });
 
+
+// Express k andr hm jb file send krty hain tu hum path ko import krty hain
+// and then hum file send krty hain by using sendfile ettcc.. lkin oss sy
+// aghr oss file k andr koi nam dea hai and meny osko pass krna tu wo essy nahi hoga
+// osklye mjy 'ejs' use krna pryga...
