@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
 })
 
-// Now I will get sucess page..
+// Now I will get sucess page...
 
 app.get("/sucess", (req, res) => {
     res.render("sucess")
