@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 })
 
-
+// Using POST method to receive data from form.
 app.post("/", (req, res) => {
     console.log(req.body);
     
