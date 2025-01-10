@@ -59,8 +59,18 @@ app.post("/", (req, res) => {
     // Render another file...lkin yahan render krny ki bjeye hum get oper krygy...get method mai...
     // res.render("sucess")
     res.redirect("/sucess");
-    
+
 })
+
+
+// Ab me chahti o k jesy e m /users pr jao tu mery ps user ka data show o..
+
+app.get("/users", (req, res) => {
+    res.json({
+    users})
+})
+
+// 01-- create server...
 
 // 02-- listen server...
 app.listen(3000, () => {
