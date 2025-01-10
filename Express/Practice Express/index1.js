@@ -43,6 +43,12 @@ app.get('/', (req, res) => {
 
 })
 
+// Now I will get sucess page..
+
+app.get("/sucess", (req, res) => {
+    res.render("sucess")
+})
+
 // Using POST method to receive data from form.
 app.post("/", (req, res) => {
     console.log(req.body);
@@ -50,8 +56,9 @@ app.post("/", (req, res) => {
 
     // Push data to array...
     users.push({username: req.body.name, email: req.body.email});
-    // Render another file...
-    res.render("sucess")
+    // Render another file...lkin yahan render krny ki bjeye hum get oper krygy...get method mai...
+    // res.render("sucess")
+    res.redirect("/sucess");
     
 })
 
