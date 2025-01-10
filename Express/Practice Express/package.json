@@ -1,0 +1,13 @@
+{
+  "name": "practice-express",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index1.js",
+  "scripts": {
+     "start": "node index1.js",
+    "dev" : "nodemon index1.js"
+  }
+}
