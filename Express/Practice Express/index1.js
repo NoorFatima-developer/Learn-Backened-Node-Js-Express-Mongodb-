@@ -1,9 +1,14 @@
 import express from 'express';
-
+import path from 'path';
 // 01-- create server...
 const app = express();
 
-// 04-- Setting up view engine...
+// 04--(ii) Render static file..
+// And ye 1 middleware hai isley hum isko app.use k andr use krygy..
+app.use(express.static(path.join(path.resolve(), "public")))
+
+
+// 04--(i) Setting up view engine...
 
 app.set("view engine", "ejs");
 
@@ -21,9 +26,14 @@ app.get('/', (req, res) => {
     //    products : []
     // });
 
-    // ---Render file....
+    // ---Render file....(Dynamically)
     // Meny jo variable yahan pass kea hai osko mai ejs mai acces krskti o...by using <%=name %>...
     res.render("index", {name : "Noor Fatima"})
+
+    // Render file...(Statically)
+    // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
+    // res.sendFile("index.html")
+
 })
 
 // 02-- listen server...
