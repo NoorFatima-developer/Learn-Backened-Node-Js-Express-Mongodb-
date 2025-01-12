@@ -18,3 +18,12 @@ mongose.connect('mongodb://127.0.0.1:27017').then(() => {
 
 // Ab isk andr humy model or schema pehly sy khud e banana hoga ta k hum crud operations 
 // perform krskain ku k isk andr crud operations different hoty trhan sy hoty hain..shell or compass ki trhan ni...
+
+
+// Create Schema...
+
+const students = mongose.Schema({
+    name: String,
+    age: Number,
+    workout: Boolean
+})
