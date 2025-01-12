@@ -24,4 +24,14 @@ iv-- db.db_name.find() (iss sy wo collection k andr jo data insert kea hai wo de
 v-- db.students.insertMany([{name: "noor", age: "23", description: "This is me Noor"}, {name: "hira", age: "30", location: "Lahore"}])
 vi-- db.students.findOne({name: "noor"}) ---> (iss sy wo bss pehla noor wala obj e dekhyega aghr meny noor k nam sy 1 sy zda b banaye hain tu)
 vi-- db.students.find({name: "noor"}).limit(1) ----> (hum limit b use krskty thy...)
-vii-- db.students.updateOne({name : "noor"}, {$set{name: "Noorah"}})
+vii-- db.students.updateOne({name : "noor"}, {$set:{name: "Noorah"}}) -->update klye i will use this:
+viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr noor nam k zda hai or meny sbko noorah krna hai tu i will use update but with many...)
+
+
+NOTE:
+
+1 update krna ho tu updateOne
+zda update krny ho tu updateMany
+pehla object find krna ho tu findOne b krskty hain and .limit(1) b
+but jb mai chahti o pehly 2 objects find o tu i will use limit(2) ya jitny b.......
+and insert hamesha insertOne sy hi hoga....
