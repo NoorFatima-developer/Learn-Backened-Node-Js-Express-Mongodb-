@@ -41,8 +41,10 @@ const adder = async () => {
         age: 22,
         workout: true
     })
-       
+
     // hum await lagaye  k jbtk ye save krk koi promise true ya false return na kry tb tk klye agly kam rok do or isko
     // agy move na krna...
     await ss.save();
 }
+
+adder();
