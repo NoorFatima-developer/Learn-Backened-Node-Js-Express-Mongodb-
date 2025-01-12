@@ -28,7 +28,9 @@ vi-- db.students.findOne({name: "noor"}) ---> (iss sy wo bss pehla noor wala obj
 vi-- db.students.find({name: "noor"}).limit(1) ----> (hum limit b use krskty thy...)
 vii-- db.students.updateOne({name : "noor"}, {$set:{name: "Noorah"}}) -->update klye i will use this:
 viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr noor nam k zda hai or meny sbko noorah krna hai tu i will use update but with many...)
-ix-- 
+ix-- db.students.deleteOne({name: "noor"}) --> iss sy noor jahan pr b pra hoga delete hojyega aghr meny koi or random nam b delete krna hoa tb b mai deleteOne hi krogi...
+x-- db.students.deleteMany({name: "noor"}) --> noor nam k jitny b hongy sb delete krdyga
+
 
 "NOTE:"
 
@@ -39,3 +41,13 @@ pehla object find krna ho tu findOne b krskty hain and .limit(1) b
 but jb mai chahti o pehly 2 objects find o tu i will use limit(2) ya 
 jitny b.......
 and insert hamesha insertOne sy hi hoga....
+
+
+<!-- KEY POINT -->
+
+// Jab 1 koi b random insert, find, update ya delete lrna ho tu one sath zror ayega.. and aghr zda krny o tu many zror ayega lkin bs find esa hai jisk sath many nahi ayega...
+
+insertOne, insertMany
+findOne, find
+updateOne, updateMany
+deleteOne, deleteMany
