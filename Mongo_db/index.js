@@ -3,7 +3,6 @@
 // New way to import..
 import mongose from 'mongoose';
 
-
 //01---Now connect mongodb to Nodejs using mongoose...
 
 // .then sy it will return a promise...
@@ -15,10 +14,8 @@ mongose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
     console.log("connected to MongoDB successfully");   
 }).catch(err => console.log(err));
 
-
 // Ab isk andr humy model or schema pehly sy khud e banana hoga ta k hum crud operations 
 // perform krskain ku k isk andr crud operations different hoty trhan sy hoty hain..shell or compass ki trhan ni...
-
 
 //02-- Create Schema...
 
@@ -32,8 +29,7 @@ const students = new mongose.Schema({
 
 const Students = new mongose.model("Students", students)
 
-
-// 04--- Ab hum iss model k andr data barhain gy...
+// 04--- Ab hum iss model k andr data barhain gy...and oss saray daata ko kisi func m wrap krdaingy ta k end m ossy hum call krskain...
 
 const adder = async () => {
     const ss = new Students({
