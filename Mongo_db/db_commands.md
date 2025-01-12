@@ -1,4 +1,11 @@
 <!-- LEARN CRUD OPERATIONS...(INSERT, READ(FIND), UPDATE, DELETE) -->
+<!-- CRUD OPERATIONS 2 TRAHAN K HOTY HAIN -->
+
+1----BY SHELL
+2----BY COMPASS
+
+
+<!-- 01-------------- LEARN BY SHELL -->
 
 i--  show dbs 
 ii-- show collections
@@ -29,7 +36,7 @@ vi-- db.students.find({name: "noor"}).limit(1) ----> (hum limit b use krskty thy
 vii-- db.students.updateOne({name : "noor"}, {$set:{name: "Noorah"}}) -->update klye i will use this:
 viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr noor nam k zda hai or meny sbko noorah krna hai tu i will use update but with many...)
 ix-- db.students.deleteOne({name: "noor"}) --> iss sy noor jahan pr b pra hoga delete hojyega aghr meny koi or random nam b delete krna hoa tb b mai deleteOne hi krogi...
-x-- db.students.deleteMany({name: "noor"}) --> noor nam k jitny b hongy sb delete krdyga
+x-- db.students.deleteMany({}) --> noor nam k jitny b hongy sb delete krdyga
 
 
 "NOTE:"
@@ -49,7 +56,7 @@ and zada delete krny hoey tu deleteMany() sy hi hongy...
 
 // Jab 1 koi b random insert, find, update ya delete lrna ho tu one sath zror ayega.. and aghr zda krny o tu many zror ayega lkin bs find esa hai jisk sath many nahi ayega...
 
-insertOne, insertMany
+insertOne, insertMany({}, {}, {}, {}, {}, {}, {}, {}) -> jisny b insert krny hain...
 findOne, find
-updateOne, updateMany
-deleteOne, deleteMany
+updateOne, updateMany({jisko update krna hai}, {and jo update krna hai})
+deleteOne, deleteMany({})
