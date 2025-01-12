@@ -18,6 +18,12 @@ vii-- db.students.find()
 
 
 
+<!-- So simpley summary how can create apna db.. -->
+
+i--db.db_name.insertOne({name: "noor", age: "23", description : "This is me Noor Ftaima..."}) 
+ii-- use db_name(iss sy hum apji db mai switch kr jygy..)
+iii-- show collections(iss sy wo collection ka name batyega)
+iv-- db.db_name.find() (iss sy wo collection k andr jo data insert kea hai wo dekhyega...)
 
 
 
