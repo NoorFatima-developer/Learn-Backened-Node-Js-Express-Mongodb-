@@ -11,7 +11,7 @@ import mongose from 'mongoose';
 //     console.log("connected to MongoDB successfully");   
 // }).catch(err => console.log(err));
 
-mongose.connect('mongodb://127.0.0.1:27017').then(() => {
+mongose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
     console.log("connected to MongoDB successfully");   
 }).catch(err => console.log(err));
 
