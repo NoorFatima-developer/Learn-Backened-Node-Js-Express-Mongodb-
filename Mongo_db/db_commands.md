@@ -7,7 +7,7 @@
 
 <!-- 01-------------- LEARN BY SHELL -->
 
-i--  show dbs 
+i-- show dbs 
 ii-- show collections
 
 lkin show collections krny sy ye mjhy kuch dekhyega nahie ku k ye admin ka data hai and osko access hai so mjsy hidden hai iskye mai apni db bana skti o...
@@ -60,3 +60,10 @@ insertOne, insertMany({}, {}, {}, {}, {}, {}, {}, {}) -> jisny b insert krny hai
 findOne, find
 updateOne, updateMany({jisko update krna hai}, {and jo update krna hai})
 deleteOne, deleteMany({})
+
+
+<!-- WHY INSTALL MONGOOSE??????? -->
+
+<!-- Also we can install mongoose which is mongodb library -->
+hum isko install krygy nodejs k sath connect krny klye...
+-------npm i mongoose
