@@ -32,6 +32,8 @@ viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr
 
 1 update krna ho tu updateOne
 zda update krny ho tu updateMany
+and aghr 1 ko bs find krna hai tu osklye we will just use find()
 pehla object find krna ho tu findOne b krskty hain and .limit(1) b
-but jb mai chahti o pehly 2 objects find o tu i will use limit(2) ya jitny b.......
+but jb mai chahti o pehly 2 objects find o tu i will use limit(2) ya 
+jitny b.......
 and insert hamesha insertOne sy hi hoga....
