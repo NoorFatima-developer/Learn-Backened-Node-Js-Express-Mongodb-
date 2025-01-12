@@ -1,3 +1,5 @@
+<!-- LEARN CRUD OPERATIONS...(INSERT, READ(FIND), UPDATE, DELETE) -->
+
 i--  show dbs 
 ii-- show collections
 
@@ -26,7 +28,7 @@ vi-- db.students.findOne({name: "noor"}) ---> (iss sy wo bss pehla noor wala obj
 vi-- db.students.find({name: "noor"}).limit(1) ----> (hum limit b use krskty thy...)
 vii-- db.students.updateOne({name : "noor"}, {$set:{name: "Noorah"}}) -->update klye i will use this:
 viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr noor nam k zda hai or meny sbko noorah krna hai tu i will use update but with many...)
-
+ix-- 
 
 "NOTE:"
 
