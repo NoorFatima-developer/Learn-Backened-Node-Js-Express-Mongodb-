@@ -35,12 +35,14 @@ const Students = new mongose.model("Students", students)
 
 // 04--- Ab hum iss model k andr data barhain gy...
 
-const ss = new Students({
-    name: "Noor",
-    age: 22,
-    workout: true
-})
-
-// hum await lagaye  k jbtk ye save krk koi promise true ya false return na kry tb tk klye agly kam rok do or isko
-// agy move na krna...
-await ss.save();
+const adder = async () => {
+    const ss = new Students({
+        name: "Noor",
+        age: 22,
+        workout: true
+    })
+       
+    // hum await lagaye  k jbtk ye save krk koi promise true ya false return na kry tb tk klye agly kam rok do or isko
+    // agy move na krna...
+    await ss.save();
+}
