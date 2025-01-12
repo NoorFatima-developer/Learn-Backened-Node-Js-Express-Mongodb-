@@ -12,7 +12,9 @@ ab mai collection banati o jismai mai data insert krskogi..
 and yahan meny collection ka name students rkha hai...
 v-- db.students.insertOne({name: "noor", age: "23", description : "This is me Noor Ftaima..."})
 
+vi-- show collections
 
+vii-- db.students.find()
 
 
 
