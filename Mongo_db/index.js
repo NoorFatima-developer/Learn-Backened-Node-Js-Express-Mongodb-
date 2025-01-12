@@ -22,7 +22,7 @@ mongose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
 
 //02-- Create Schema...
 
-const students = mongose.Schema({
+const students = new mongose.Schema({
     name: String,
     age: Number,
     workout: Boolean
@@ -30,4 +30,13 @@ const students = mongose.Schema({
 
 //03-- Create Model...(Model is like a collection in mongodb)
 
-const Students = mongose.model("Students", students)
+const Students = new mongose.model("Students", students)
+
+
+// 04--- Ab hum iss model k andr data barhain gy...
+
+const ss = new Students({
+    name: "Noor",
+    age: 22,
+    workout: true
+})
