@@ -3,7 +3,7 @@ ii-- show collections
 
 lkin show collections krny sy ye mjhy kuch dekhyega nahie ku k ye admin ka data hai and osko access hai so mjsy hidden hai iskye mai apni db bana skti o...
 
-<!-- create own database -->
+<!-- create own database.............. -->
 
 iii-- use noor
 iv-- show dbs(abi noor db k andr kuch write ni kea that's why kuch b nahie kryga...)
@@ -28,7 +28,7 @@ vii-- db.students.updateOne({name : "noor"}, {$set:{name: "Noorah"}}) -->update 
 viii-- db.students.updateMany({name : "noor"}, {$set:{name: "Noorah"}})--->(aghr noor nam k zda hai or meny sbko noorah krna hai tu i will use update but with many...)
 
 
-NOTE:
+"NOTE:"
 
 1 update krna ho tu updateOne
 zda update krny ho tu updateMany
