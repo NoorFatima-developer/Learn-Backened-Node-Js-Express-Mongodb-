@@ -4,7 +4,7 @@
 import mongose from 'mongoose';
 
 
-//Now connect mongodb to Nodejs using mongoose...
+//01---Now connect mongodb to Nodejs using mongoose...
 
 // .then sy it will return a promise...
 // mongose.connect('mongodb://127.0.0.1:27017', {useNewURLParser: true, useUnifiedTopology: true}).then(() => {
@@ -20,10 +20,14 @@ mongose.connect('mongodb://127.0.0.1:27017').then(() => {
 // perform krskain ku k isk andr crud operations different hoty trhan sy hoty hain..shell or compass ki trhan ni...
 
 
-// Create Schema...
+//02-- Create Schema...
 
 const students = mongose.Schema({
     name: String,
     age: Number,
     workout: Boolean
 })
+
+//03-- Create Model...(Model is like a collection in mongodb)
+
+const Students = mongose.model("Students", students)
