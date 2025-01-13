@@ -6,7 +6,7 @@ const app = express();
 // mongoose ko import krna hai node js ko mongodb k stah connect krny klye...
 import mongoose from 'mongoose';
 
-
+// =============================DB KA KAM====================
 // Connect with database:
 mongoose.connect("mongodb://127.0.0.1:27017/", {
     dbName: 'backend',
@@ -22,6 +22,14 @@ const messageSchema = new mongoose.Schema({
     name: String,
     email: String
 })
+
+// NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
+
+const Message = mongoose.model("Message", messageSchema);
+
+
+
+// ===================END DB KA KAM==============
 
 // Push data to array(ye form ki prac klye task hai)
 const users = [];
