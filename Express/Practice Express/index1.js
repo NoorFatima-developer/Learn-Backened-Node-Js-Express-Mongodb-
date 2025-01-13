@@ -7,6 +7,7 @@ const app = express();
 import mongoose from 'mongoose';
 
 // =============================DB KA KAM====================
+
 // Connect with database:
 mongoose.connect("mongodb://127.0.0.1:27017/", {
     dbName: 'backend',
@@ -17,15 +18,26 @@ mongoose.connect("mongodb://127.0.0.1:27017/", {
 })
 
 // Create Schema:
-
 const messageSchema = new mongoose.Schema({
     name: String,
     email: String
 })
 
 // NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
-
 const Message = mongoose.model("Message", messageSchema);
+
+app.get("/add", (req, res) => {
+
+    // Ab mai module ko use krlogi..and create jismai mera obj hoga...
+    // pehly data add hoga and then message mai 'Nice' chala jyega...
+    Message.create({
+        name: "John Doe",
+        email: "johndoe@example.com"
+    })
+    .then(()=> {
+        res.send("Nice")
+    })   
+})
 
 
 
@@ -94,10 +106,6 @@ app.post("/contact", (req, res) => {
 app.get("/users", (req, res) => {
     res.json({
     users})
-})
-
-app.get("/add", (req, res) => {
-    res.send("Nice")
 })
 
 // 02-- listen server...
