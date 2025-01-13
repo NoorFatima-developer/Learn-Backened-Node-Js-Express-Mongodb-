@@ -3,8 +3,22 @@ import express from 'express';
 import path from 'path';
 // 01-- create server...
 const app = express();
-// Push data to array(ye form ki prac klye task hai)
+// mongoose ko import krna hai node js ko mongodb k stah connect krny klye...
+import mongoose from 'mongoose';
 
+
+// Connect with database:
+mongoose.connect("mongodb://127.0.0.1:27017/Backened", {
+    dbName: 'backend',
+})
+.then( () => {
+    console.log("Database connected");
+}).catch((err) => {
+    console.log("Database connection error", err);
+})
+
+
+// Push data to array(ye form ki prac klye task hai)
 const users = [];
 
 // 04--(ii) Render static file..
@@ -16,7 +30,7 @@ app.use(express.static(path.join(path.resolve(), "public")))
 // ----Ye middleware post method klye use hoe hai...
 app.use(express.urlencoded({extended: true}))
 
-// 04--(i) Setting up view engine...
+// 04--(i=>lkin static mai iski zrort ni prti html file b use krksty hain...) Setting up view engine...
 app.set("view engine", "ejs");
 
 // 03--- Ab data send krny klye hmy if else conditions ni lagani prygi jesy hum node js mai lagaty thy wo hum yahan pr bach jygy on conditions sy...
@@ -69,6 +83,11 @@ app.get("/users", (req, res) => {
     users})
 })
 
+
+app.get("/add", (req, res) => {
+    res.send("Nice")
+})
+
 // 02-- listen server...
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');
@@ -81,3 +100,9 @@ app.listen(3000, () => {
 // osklye mjy 'ejs' use krna pryga...
 // and ejs use klye zrori h k hum folder banaye jiska nam view ho...
 // and index.html ki bjye file ka nam index.ejs hona chhaye but ye behave index file ki trhan hi krygi...
+
+
+
+// render or send mai frq ye hota hai k 
+// res.send() ka mtlb hota hai k m page pr direct ja k dekh skti o k kea pra hai, lkin 
+// res.render() ka mtlb ye hota hai k jb data submit o ya post req o osk bd wo data osk andr jana chhaye or page pr tb render hona chhaye...
