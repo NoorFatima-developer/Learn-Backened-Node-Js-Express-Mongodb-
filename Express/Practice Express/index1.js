@@ -8,15 +8,20 @@ import mongoose from 'mongoose';
 
 
 // Connect with database:
-mongoose.connect("mongodb://127.0.0.1:27017/Backened", {
+mongoose.connect("mongodb://127.0.0.1:27017/", {
     dbName: 'backend',
-})
-.then( () => {
+}).then(() => {
     console.log("Database connected");
 }).catch((err) => {
     console.log("Database connection error", err);
 })
 
+// Create Schema:
+
+const messageSchema = new mongoose.Schema({
+    name: String,
+    email: String
+})
 
 // Push data to array(ye form ki prac klye task hai)
 const users = [];
@@ -82,7 +87,6 @@ app.get("/users", (req, res) => {
     res.json({
     users})
 })
-
 
 app.get("/add", (req, res) => {
     res.send("Nice")
