@@ -44,7 +44,6 @@ const Students = new mongose.model("Students", students)
 //     await ss.save();
 // }
 
-
 // NEW WAY(Short way...)
 
 // i------ create data...
