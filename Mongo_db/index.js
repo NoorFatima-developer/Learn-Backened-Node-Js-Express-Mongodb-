@@ -72,10 +72,16 @@ const findData = async () => {
     // ==========ab mjy bs wo dekhao jiski age 23 hai..
     // const sss = await Students.find({age: {$eq: 23}});
     // ==========ab mjy wo dekhao jiski height 23 sy greater hai...
-    const sss = await Students.find({age: {$gt: 23}});
+    // const sss = await Students.find({age: {$gt: 23}});
+    // jo array m match hain age osko dekha do
+    // const sss = await Students.find({age: {$in: [23, 22]}});
+    // ab in dono ko chor k baki dekha do..
+    const sss = await Students.find({age: {$nin: [23, 22]}});
     console.log(sss);
 }
 
+// find() ------> ye array k sary objects ko dekha dyga.. aghr mju find k andr kuch specific operation perform krna hai
+//  tu i will use below operations:👇
 // eq => equal to, gt => greater than, lt => less than, gte => greater than or equal to, lte => less than or equal to...
 // ne => not equal to, in => jo array mai matches hain wo dekha do , nin => jo num isk andr dongi onko chor k sb dekha do...
 
