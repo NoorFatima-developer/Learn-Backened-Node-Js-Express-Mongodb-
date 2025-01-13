@@ -11,6 +11,7 @@ import mongoose from 'mongoose';
 // Connect with database:
 mongoose.connect("mongodb://127.0.0.1:27017/", {
     dbName: 'backend',
+    writeConcern: { w: "majority" }
 }).then(() => {
     console.log("Database connected");
 }).catch((err) => {
@@ -26,17 +27,18 @@ const messageSchema = new mongoose.Schema({
 // NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
 const Message = mongoose.model("Message", messageSchema);
 
-app.get("/add", (req, res) => {
+app.get("/add", async(req, res) => {
 
     // Ab mai module ko use krlogi..and create jismai mera obj hoga...
     // pehly data add hoga and then message mai 'Nice' chala jyega...
-    Message.create({
+    await Message.create({
         name: "John Doe",
         email: "johndoe@example.com"
     })
-    .then(()=> {
-        res.send("Nice")
-    })   
+
+    // isko .then k andr b likh skti o lkin meny osmai ni likha meny oski jagah async or await ka use krlea hai...
+    res.send("Nice")
+      
 })
 
 
