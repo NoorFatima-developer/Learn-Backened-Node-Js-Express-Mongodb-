@@ -42,7 +42,6 @@ app.get("/add", async(req, res) => {
 })
 
 
-
 // ===================END DB KA KAM==============
 
 // Push data to array(ye form ki prac klye task hai)
