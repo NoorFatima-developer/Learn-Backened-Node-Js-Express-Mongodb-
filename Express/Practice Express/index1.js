@@ -129,6 +129,14 @@ app.get("/users", (req, res) => {
 
 // Authentication klye we will use Login...
 
+app.get("/login", (req, res) => {
+    // set krny klye we use res..
+
+    res.cookie("token", "iamin");
+    // redirect means k infinite times render hota rhy...
+    res.redirect("/");
+})
+
 // 02-- listen server...
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');
