@@ -6,6 +6,9 @@ const app = express();
 // mongoose ko import krna hai node js ko mongodb k stah connect krny klye...
 import mongoose from 'mongoose';
 
+// import cookie-parser because its also a middleware:
+import CookieParser from 'cookie-parser';
+
 // =============================DB KA KAM====================
 
 // Connect with database:
@@ -56,6 +59,8 @@ const users = [];
 app.use(express.static(path.join(path.resolve(), "public")))
 // ----Ye middleware post method klye use hoe hai...
 app.use(express.urlencoded({extended: true}))
+// ---- Ye middleware cookies klye use hoe hai...
+app.use(CookieParser())
 
 // 04--(i=>lkin static mai iski zrort ni prti html file b use krksty hain...) Setting up view engine...
 app.set("view engine", "ejs");
@@ -79,8 +84,14 @@ app.get('/', (req, res) => {
     // res.render("index", {name : "Noor Fatima"})
 
     // =========================LEARN AUTHENTICATION=================================
+    
     // Ab mai authentication sikhny lgi hon, Islye I will pass login here...
-     res.render("login")
+     
+    // aghr meny / mai sari cookies ko access krna hai tu i will do this:
+    // tu osklye mjy 1 package use krna pryga jiska nam hai: cookie-parser...
+    console.log(req.cookies);
+    
+    res.render("login")
 
     // Render file...(Statically)
     // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
