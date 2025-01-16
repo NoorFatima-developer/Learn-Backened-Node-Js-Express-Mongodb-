@@ -129,9 +129,8 @@ app.get("/users", (req, res) => {
 
 // Authentication klye we will use Login...
 
-app.get("/login", (req, res) => {
-    // set krny klye we use res..
-
+app.post("/login", (req, res) => {
+    // cookies ko set krny klye we use res..
     res.cookie("token", "iamin");
     // redirect means k infinite times render hota rhy...
     res.redirect("/");
