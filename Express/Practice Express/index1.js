@@ -90,6 +90,10 @@ app.get('/', (req, res) => {
     // aghr meny / mai sari cookies ko access krna hai tu i will do this:
     // tu osklye mjy 1 package use krna pryga jiska nam hai: cookie-parser...
     console.log(req.cookies);
+    // aghr khali name ki value access krni hai i will do this:
+    const token = req.cookies.token;
+    // const {token} = req.cookies
+    console.log(token);
     
     res.render("login")
 
