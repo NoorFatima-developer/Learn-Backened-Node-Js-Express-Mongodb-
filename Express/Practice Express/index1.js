@@ -76,7 +76,11 @@ app.get('/', (req, res) => {
 
     // ---Render file....(Dynamically)
     // Meny jo variable yahan pass kea hai osko mai ejs mai acces krskti o...by using <%=name %>...
-    res.render("index", {name : "Noor Fatima"})
+    // res.render("index", {name : "Noor Fatima"})
+
+    // =========================LEARN AUTHENTICATION=================================
+    // Ab mai authentication sikhny lgi hon, Islye I will pass login here...
+     res.render("login")
 
     // Render file...(Statically)
     // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
