@@ -131,7 +131,11 @@ app.get("/users", (req, res) => {
 
 app.post("/login", (req, res) => {
     // cookies ko set krny klye we use res..
-    res.cookie("token", "iamin");
+    res.cookie("token", "iamin", {
+        // cookie k kafi methids hoty hain, iss method ka mtlb hai k more secure rhyga...
+        // means client side pr message nahi krskty hum, bss server side pr krskty hain...
+        httpOnly: true
+    });
     // redirect means k infinite times render hota rhy...
     res.redirect("/");
 })
