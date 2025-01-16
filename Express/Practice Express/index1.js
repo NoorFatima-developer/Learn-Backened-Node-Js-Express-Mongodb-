@@ -27,6 +27,7 @@ const messageSchema = new mongoose.Schema({
 // NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
 const Message = mongoose.model("Message", messageSchema);
 
+// Ab mai data bejogi...
 app.get("/add", async(req, res) => {
 
     // Ab mai module ko use krlogi..and create jismai mera obj hoga...
@@ -92,12 +93,25 @@ app.get("/sucess", (req, res) => {
 // Using POST method to receive data from form.
 
 // and by default tu / e hoga lkin aghr meny /contact krna hai tu mjy action mai b yhi krna hoga..
-app.post("/contact", (req, res) => {
+app.post("/contact", async(req, res) => {
     console.log(req.body);
     console.log(req.body.name);
 
-    // Push data to array...
-    users.push({username: req.body.name, email: req.body.email});
+    // Push data to array...(iss sy /users ps jany sy data show horha hai lkin m chahti hon k jesy e data submit o /users m na jye balky db mai chala jye..)
+    // users.push({username: req.body.name, email: req.body.email});
+    // DB sy connect klye hum push ni krygy...
+
+    // const messageData = {name: req.body.name, email: req.body.email};
+    // destructure name and email..ta k br br req.body na likhna pry..
+    const {name, email} = req.body;
+    // key value pair same ho tu essy b likh skty hain...
+    // const messageData = {name:name, email:email};
+    const messageData = {name, email};
+
+    console.log(messageData);
+    // Abi data console m aya hai ab mjy database mai b bejna hai tu osklye m essy data bejogi...
+    await Message.create(messageData);
+    
     // Render another file...lkin yahan render krny ki bjeye hum get oper krygy...get method mai...
     // res.render("sucess")
     res.redirect("/sucess");
