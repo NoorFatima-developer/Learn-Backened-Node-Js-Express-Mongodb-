@@ -108,7 +108,6 @@ app.post("/login", async (req, res) => {
     console.log(req.body);    
     // destructure req.body...
     const { name, email} = req.body;
-
     // acha yahan pr 1 check laga do k aghr user exist nahi krta db mai tu osko kaho k register kro ...
      let User = await user.findOne({email})
      if(!User){
@@ -128,7 +127,6 @@ app.post("/login", async (req, res) => {
     // jwt.sign(data, secretKey, options)
     const tokenn = jwt.sign({_id: User._id}, "aehbdnaskmnhb")
     console.log(tokenn);
-    
 
     // cookies ko set krny klye we use res..
     // lkin User._id basically token ki value hai or wo encoded form mai h lkin m osko secure krna chahti o osklye
