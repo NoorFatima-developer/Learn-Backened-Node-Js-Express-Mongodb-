@@ -5,8 +5,8 @@
   }
   
   main {
-    /* background-color: rgb(255, 225, 221); */
-    background-image: url(https://img.freepik.com/free-vector/hand-drawn-flat-design-geometric-background_23-2149332344.jpg);
+    background-color: rgb(255, 225, 221);
+    /* background-image: url(https://img.freepik.com/free-vector/hand-drawn-flat-design-geometric-background_23-2149332344.jpg); */
     height: 100vh;
     display: grid;
     place-items: center;

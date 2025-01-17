@@ -1,7 +1,7 @@
 // Old way to import..
 // const mongoose = require('mongoose');
 // New way to import..
-import mongose from 'mongoose';
+import mongoose from 'mongoose';
 
 //01---Now connect mongodb to Nodejs using mongoose...
 
@@ -10,7 +10,7 @@ import mongose from 'mongoose';
 //     console.log("connected to MongoDB successfully");   
 // }).catch(err => console.log(err));
 
-mongose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
     console.log("connected to MongoDB successfully");   
 }).catch(err => console.log(err));
 
@@ -19,7 +19,7 @@ mongose.connect('mongodb://127.0.0.1:27017/Sample').then(() => {
 
 //02-- Create Schema...
 
-const students = new mongose.Schema({
+const students = new mongoose.Schema({
     name: String,
     age: Number,
     workout: Boolean
@@ -28,7 +28,7 @@ const students = new mongose.Schema({
 //03-- Create Model...(Model is like a collection in mongodb)
 // collection mnz hmy database ka koi kam nam rkhna prta hai...jesy meny yahan Students rkha hai 
 
-const Students = new mongose.model("Students", students)
+const Students = new mongoose.model("Students", students)
 
 // 04--- Ab hum iss model k andr data barhain gy...and oss saray daata ko kisi func m wrap krdaingy ta k end m ossy hum call krskain...
 
