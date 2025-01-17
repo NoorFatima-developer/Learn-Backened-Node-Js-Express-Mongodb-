@@ -95,6 +95,15 @@ app.post("/login", async (req, res) => {
         email
     })
 
+    // ab mai jwt token k through apny data ko secure krogi ...
+
+    // ye iska structure hai...
+    // jwt.sign(data, secretKey, options)
+
+    const token = jwt.sign({_id: User._id})
+    console.log(token);
+    
+
     // cookies ko set krny klye we use res..
     // lkin User._id basically token ki value hai or wo encoded form mai h lkin m osko secure krna chahti o osklye
     // 1 package install krogi jiska nam hai..(jsonwebtoken)
