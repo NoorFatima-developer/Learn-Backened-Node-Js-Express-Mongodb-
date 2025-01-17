@@ -29,7 +29,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/", {
 // Create Schema:
 const userSchema = new mongoose.Schema({
     name: String,
-    email: String
+    email: String,
+    password: String
 })
 
 // NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
@@ -81,7 +82,7 @@ const isAuthenticated = async(req, res, next) => {
 
         next();
     } else {
-        res.render("login")
+        res.redirect("login")
     }
 }
 
@@ -101,23 +102,27 @@ app.get('/', isAuthenticated, (req, res) => {
 app.get("/register", (req, res) => {
     res.render("register")
 })
+app.get("/login", (req, res) => {
+    res.render("login")
+})
 
-//-------Ye Login klye hai...
-app.post("/login", async (req, res) => {
+//-------Ye POST METHOD Register klye hai...
+app.post("/register", async (req, res) => {
     console.log(req.body);    
     // destructure req.body...
-    const { name, email } = req.body;
+    const { name, email, password } = req.body;
     // acha yahan pr 1 check laga do k aghr user exist nahi krta db mai tu osko kaho k register kro ...
      let User = await user.findOne({email})
-     if(!User){
+     if(User){
         // return console.log("Register Frst");
         // ab redirect krny sy pehly mjy register ko get b krna pryga so oper m get krlogi...
-        return res.redirect("/register"); 
+        return res.redirect("/login"); 
     }
     // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
     User = await user.create({
         name,
-        email
+        email,
+        password
     })
 
     // ab mai jwt token k through apny data ko secure krogi ...
@@ -140,6 +145,27 @@ app.post("/login", async (req, res) => {
     // redirect means k infinite times render hota rhy...
     res.redirect("/");
 })
+
+
+// Ye POST METHOD login klye hai...
+
+app.post("/login", async (req, res) =>{
+    const { email, password} = req.body;
+     let User = await user.findOne({email})
+    //  aghr tu user ka data db k data sy match ni hoa tu osko kahygay k redirect kr jao /register pr..
+     if(!User) return res.redirect("/register");
+    //  lkin aghr iska data db k data sy match kr jta hai tu phr hum [assword ko match krygy..
+    const isMatch = User.password === password;
+    if(!isMatch) return res.render("login", {message: "Incorrect Password"});
+    // or aghr password match krgya tu will do this:
+    const tokenn = jwt.sign({_id: User._id}, "aehbdnaskmnhb")
+    res.cookie("token", tokenn, {
+        httpOnly: true,
+        expires: new Date(Date.now() + 60*100)
+    });
+    res.redirect("/");
+});
+
 
 //-----------Ye logout klye hai...
 app.get("/logout", (req, res) => {
