@@ -69,14 +69,17 @@ app.set("view engine", "ejs");
 // AUTHENTICATION KA KAM MENY YAHAN SEPARATE FILE MAI DUBARA SY KR RI O TA K SYNTAX CLEAR HO...
 
 // next ko use krty hain authentication mai;
-const isAuthenticated = (req, res, next) => {
+const isAuthenticated = async(req, res, next) => {
     const {token} = req.cookies;
     if(token){
-
         // ab m osko kahogi k last kam ye hai k iss check k andr jwt token ki value ko decoded krdo...
-
         const decoded = jwt.verify(token, "aehbdnaskmnhb")
         console.log(decoded);
+        // ye wala step basically m user ki information ko forever save krny klye use krogi and m osko
+        // kahi b kisi b jagah access krskogi.. user ko
+
+        req.User = await user.findById(decoded._id);
+
         next();
     } else {
         res.render("login")
@@ -105,7 +108,6 @@ app.post("/login", async (req, res) => {
 
     // ye iska structure hai...
     // jwt.sign(data, secretKey, options)
-
     const tokenn = jwt.sign({_id: User._id}, "aehbdnaskmnhb")
     console.log(tokenn);
     
