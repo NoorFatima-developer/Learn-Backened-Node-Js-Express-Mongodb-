@@ -41,6 +41,10 @@
     text-underline-offset: 8px;
   }
 
+  p{
+    color: white;
+  }
+
   input {
     padding: 1rem;
     outline: none;

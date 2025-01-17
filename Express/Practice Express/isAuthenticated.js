@@ -156,7 +156,8 @@ app.post("/login", async (req, res) =>{
      if(!User) return res.redirect("/register");
     //  lkin aghr iska data db k data sy match kr jta hai tu phr hum [assword ko match krygy..
     const isMatch = User.password === password;
-    if(!isMatch) return res.render("login", {message: "Incorrect Password"});
+    // email yahan sath islye di hai ta k email save rhy...
+    if(!isMatch) return res.render("login", {email,message: "Incorrect Password"});
     // or aghr password match krgya tu will do this:
     const tokenn = jwt.sign({_id: User._id}, "aehbdnaskmnhb")
     res.cookie("token", tokenn, {
