@@ -5,9 +5,14 @@ import path from 'path';
 const app = express();
 // mongoose ko import krna hai node js ko mongodb k stah connect krny klye...
 import mongoose from 'mongoose';
-
 // import cookie-parser because its also a middleware:
 import CookieParser from 'cookie-parser';
+
+// import jwt token...
+import jwt from "jsonwebtoken";
+
+
+
 
 // =============================DB KA KAM====================
 
@@ -120,6 +125,7 @@ app.listen(3000, () => {
 });
 
 
+// ======================INSTALL IMP PACKAGES =================
 
 // cookies klye cookie-parser pkg install krna hota hai and import b and use b as a middleware
 // and cookies k andr jo value jti o wo encoded hoti hai but fer b we need to secure osklye
