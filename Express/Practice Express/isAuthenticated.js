@@ -77,10 +77,10 @@ const isAuthenticated = async(req, res, next) => {
         console.log(decoded);
         // ye wala step basically m user ki information ko forever save krny klye use krogi and m osko
         // kahi b kisi b jagah access krskogi.. user ko
-
         req.User = await user.findById(decoded._id);
 
         next();
+
     } else {
         res.render("login")
     }
@@ -88,6 +88,9 @@ const isAuthenticated = async(req, res, next) => {
 
 
 app.get('/', isAuthenticated, (req, res) => {
+    // ab m isk andr req.user ko log krk dekhti o...
+    console.log(req.User);
+    
     res.render("logout");
 })
 
