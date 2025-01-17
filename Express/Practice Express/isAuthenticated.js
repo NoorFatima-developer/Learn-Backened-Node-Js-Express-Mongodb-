@@ -84,7 +84,7 @@ app.get('/', isAuthenticated, (req, res) => {
 app.post("/login", async (req, res) => {
     console.log(req.body);
     const { name, email} = req.body;
-    // create user...
+    // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
     const User = await user.create({
         name,
         email
