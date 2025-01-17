@@ -80,7 +80,6 @@ const isAuthenticated = async(req, res, next) => {
         req.User = await user.findById(decoded._id);
 
         next();
-
     } else {
         res.render("login")
     }
@@ -98,13 +97,27 @@ app.get('/', isAuthenticated, (req, res) => {
 
     //Authentication klye we will use Login...
 
+// register ko m yahan pr pehly get krogi and then login mai redirect krogi...
+
+app.get("/register", (req, res) => {
+    res.render("register")
+})
+
 //-------Ye Login klye hai...
 app.post("/login", async (req, res) => {
     console.log(req.body);    
     // destructure req.body...
     const { name, email} = req.body;
+
+    // acha yahan pr 1 check laga do k aghr user exist nahi krta db mai tu osko kaho k register kro ...
+     let User = await user.findOne({email})
+     if(!User){
+        // return console.log("Register Frst");
+        // ab redirect krny sy pehly mjy register ko get b krna pryga so oper m get krlogi...
+        return res.redirect("/register"); 
+    }
     // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
-    const User = await user.create({
+    User = await user.create({
         name,
         email
     })
