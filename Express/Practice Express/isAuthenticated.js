@@ -91,6 +91,8 @@ app.post("/login", async (req, res) => {
     })
 
     // cookies ko set krny klye we use res..
+    // lkin User._id basically token ki value hai or wo encoded form mai h lkin m osko secure krna chahti o osklye
+    // 1 package install krogi jiska nam hai..(jsonwebtoken)
     res.cookie("token", User._id, {
         // cookie k kafi methids hoty hain, iss method ka mtlb hai k more secure rhyga...
         // means client side pr user nahi krskty hum, bss server side pr krskty hain...
@@ -116,3 +118,9 @@ app.get("/logout", (req, res) => {
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');
 });
+
+
+
+// cookies klye cookie-parser pkg install krna hota hai and import b and use b as a middleware
+// and cookies k andr jo value jti o wo encoded hoti hai but fer b we need to secure osklye
+// hum pkg install krygy jiska nam hai jsonwebtoken(jwt)... 
