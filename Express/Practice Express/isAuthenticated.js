@@ -72,6 +72,11 @@ app.set("view engine", "ejs");
 const isAuthenticated = (req, res, next) => {
     const {token} = req.cookies;
     if(token){
+
+        // ab m osko kahogi k last kam ye hai k iss check k andr jwt token ki value ko decoded krdo...
+
+        const decoded = jwt.verify(token, "aehbdnaskmnhb")
+        console.log(decoded);
         next();
     } else {
         res.render("login")
@@ -88,6 +93,7 @@ app.get('/', isAuthenticated, (req, res) => {
 //-------Ye Login klye hai...
 app.post("/login", async (req, res) => {
     console.log(req.body);
+    // destructure req.body...
     const { name, email} = req.body;
     // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
     const User = await user.create({
@@ -100,14 +106,14 @@ app.post("/login", async (req, res) => {
     // ye iska structure hai...
     // jwt.sign(data, secretKey, options)
 
-    const token = jwt.sign({_id: User._id})
-    console.log(token);
+    const tokenn = jwt.sign({_id: User._id}, "aehbdnaskmnhb")
+    console.log(tokenn);
     
 
     // cookies ko set krny klye we use res..
     // lkin User._id basically token ki value hai or wo encoded form mai h lkin m osko secure krna chahti o osklye
     // 1 package install krogi jiska nam hai..(jsonwebtoken)
-    res.cookie("token", User._id, {
+    res.cookie("token", tokenn, {
         // cookie k kafi methids hoty hain, iss method ka mtlb hai k more secure rhyga...
         // means client side pr user nahi krskty hum, bss server side pr krskty hain...
         httpOnly: true,
