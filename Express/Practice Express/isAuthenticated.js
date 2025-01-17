@@ -76,7 +76,7 @@ const isAuthenticated = async(req, res, next) => {
         const decoded = jwt.verify(token, "aehbdnaskmnhb")
         console.log(decoded);
         // ye wala step basically m user ki information ko forever save krny klye use krogi and m osko
-        // kahi b kisi b jagah access krskogi.. user ko
+        // Authenticated m access krskoig..
         req.User = await user.findById(decoded._id);
 
         next();
@@ -91,14 +91,16 @@ app.get('/', isAuthenticated, (req, res) => {
     // ab m isk andr req.user ko log krk dekhti o...
     console.log(req.User);
     
-    res.render("logout");
+    // and m dynamically name ko access krskti hon ku k name ko meny ejs k andr likha hai and yahan osko pass krdogi like this:
+
+    res.render("logout", {name: req.User.name});
 })
 
     //Authentication klye we will use Login...
 
 //-------Ye Login klye hai...
 app.post("/login", async (req, res) => {
-    console.log(req.body);
+    console.log(req.body);    
     // destructure req.body...
     const { name, email} = req.body;
     // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
