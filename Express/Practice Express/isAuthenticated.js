@@ -83,6 +83,7 @@ const isAuthenticated = async(req, res, next) => {
         console.log(decoded);
         // ye wala step basically m user ki information ko forever save krny klye use krogi and m osko
         // Authenticated m access krskoig..
+        // and hum req.User sy kabi b data ko dynamically access krsty hain...
         req.User = await user.findById(decoded._id);
 
         next();
@@ -91,6 +92,7 @@ const isAuthenticated = async(req, res, next) => {
     }
 }
 
+// ye basically next wala part hai...
 app.get('/', isAuthenticated, (req, res) => {
     // ab m isk andr req.user ko log krk dekhti o...
     console.log(req.User);
@@ -123,14 +125,18 @@ app.post("/register", async (req, res) => {
         // ab redirect krny sy pehly mjy register ko get b krna pryga so oper m get krlogi...
         return res.redirect("/login"); 
     }
+    
+    // password ko secure krogi...
+    // bcrypt.hash(password, saltRounds)
+    const hashedPassword = await bcrypt.hash(password, 10);
     // create user...(ye islye kea hai ta k jo data cookies mai store hai wo db mai users k andr store o jye...)
     User = await user.create({
         name,
         email,
-        password
+        password:hashedPassword
     })
 
-    // ab mai jwt token k through apny data ko secure krogi ...
+    // ab mai jwt token k through apny cookies k data ko secure krogi ...
 
     // ye iska structure hai...
     // jwt.sign(data, secretKey, options)
@@ -161,7 +167,10 @@ app.post("/login", async (req, res) =>{
      if(!User) return res.redirect("/register");
     //  lkin aghr iska data db k data sy match kr jta hai tu phr hum [assword ko match krygy..
     // lkin jo password hai wo hash ki form mai hona chhaye islye hum "bcrypt" pkg ko install krygy...
-    const isMatch = User.password === password;
+    // const isMatch = User.password === password;
+    // ab password match krny time b bcrypt dena pryga islye hum ye nichy wala method use krygy...
+
+        const isMatch = await bcrypt.compare(password, User.password)
     // email yahan sath islye di hai ta k email save rhy...
     if(!isMatch) return res.render("login", {email,message: "Incorrect Password"});
     // or aghr password match krgya tu will do this:
