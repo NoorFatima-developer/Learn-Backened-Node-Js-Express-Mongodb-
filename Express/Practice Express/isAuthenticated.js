@@ -8,8 +8,13 @@ import mongoose from 'mongoose';
 // import cookie-parser because its also a middleware:
 import CookieParser from 'cookie-parser';
 
-// import jwt token...
+// import jwt token...(to make value of cookie token secure..and also decode that value...)
 import jwt from "jsonwebtoken";
+
+// import bcrypt for password encryption and make password strong by storing them in hash...
+import bcrypt from "bcrypt";
+
+
 
 
 
@@ -155,6 +160,7 @@ app.post("/login", async (req, res) =>{
     //  aghr tu user ka data db k data sy match ni hoa tu osko kahygay k redirect kr jao /register pr..
      if(!User) return res.redirect("/register");
     //  lkin aghr iska data db k data sy match kr jta hai tu phr hum [assword ko match krygy..
+    // lkin jo password hai wo hash ki form mai hona chhaye islye hum "bcrypt" pkg ko install krygy...
     const isMatch = User.password === password;
     // email yahan sath islye di hai ta k email save rhy...
     if(!isMatch) return res.render("login", {email,message: "Incorrect Password"});
@@ -166,6 +172,7 @@ app.post("/login", async (req, res) =>{
     });
     res.redirect("/");
 });
+
 
 
 //-----------Ye logout klye hai...

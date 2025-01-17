@@ -27,8 +27,8 @@
             <h1>Login Now</h1>
             <input type="email" name="email" placeholder="Email" value="<%= locals.email %>">
             <input type="password" name="password" placeholder="Password">
+            <p class="error"> <%= locals.message %> </p>
             <button type="submit">Log In</button>
-            <p> <%= locals.message %> </p>
         </form>
     </main>
 </body>
