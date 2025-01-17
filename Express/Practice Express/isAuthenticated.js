@@ -85,7 +85,6 @@ const isAuthenticated = async(req, res, next) => {
     }
 }
 
-
 app.get('/', isAuthenticated, (req, res) => {
     // ab m isk andr req.user ko log krk dekhti o...
     console.log(req.User);
@@ -95,7 +94,7 @@ app.get('/', isAuthenticated, (req, res) => {
     res.render("logout", {name: req.User.name});
 })
 
-    //Authentication klye we will use Login...
+    //...Authentication klye we will use Login...
 
 // register ko m yahan pr pehly get krogi and then login mai redirect krogi...
 
