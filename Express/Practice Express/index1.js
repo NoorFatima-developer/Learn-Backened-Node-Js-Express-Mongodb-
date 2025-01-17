@@ -65,9 +65,22 @@ app.use(CookieParser())
 // 04--(i=>lkin static mai iski zrort ni prti html file b use krksty hain...) Setting up view engine...
 app.set("view engine", "ejs");
 
+// next ko use krty hain authentication mai;
+const isAuthenticated = (req, res, next) => {
+    const {token} = req.cookies;
+    if(token){
+        next();
+    } else {
+        res.render("login")
+    }
+}
+
 // 03--- Ab data send krny klye hmy if else conditions ni lagani prygi jesy hum node js mai lagaty thy wo hum yahan pr bach jygy on conditions sy...
 // USE GET method to send data...
-app.get('/', (req, res) => {
+app.get('/', isAuthenticated, (req, res) => {
+
+    res.render("logout");
+
     // ----Render send request...
     // res.send("Hi");
     // res.sendStatus(404);
@@ -86,21 +99,24 @@ app.get('/', (req, res) => {
     // =========================LEARN AUTHENTICATION=================================
     
     // Ab mai authentication sikhny lgi hon, Islye I will pass login here...
-     
+    
+        // =======isk andr meny jo authentication wala kam kea hau m isk ander b krskti o lkin
+        // mai osko oper aleda sy func authenticated ka bana k osk andr b krskti hon...
+
     // aghr meny / mai sari cookies ko access krna hai tu i will do this:
     // tu osklye mjy 1 package use krna pryga jiska nam hai: cookie-parser...
-    console.log(req.cookies);
+        // console.log(req.cookies);
     // aghr khali name ki value access krni hai i will do this:
-    const token = req.cookies.token;
+        // const token = req.cookies.token;
     // const {token} = req.cookies
-    console.log(token);
+        // console.log(token);
     
-    if(token){
-        res.render("logout")
-    }
-    else{
-        res.render("login")
-    }
+        // if(token){
+        //     res.render("logout")
+        // }
+        // else{
+        //     res.render("login")
+        // }
     // Render file...(Statically)
     // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
     // res.sendFile("index.html")
@@ -169,8 +185,7 @@ app.get("/logout", (req, res) => {
         expires: new Date(Date.now())
     });
     res.redirect("/");
-})
-
+})// Authentication ends here............
 
 // 02-- listen server...
 app.listen(3000, () => {

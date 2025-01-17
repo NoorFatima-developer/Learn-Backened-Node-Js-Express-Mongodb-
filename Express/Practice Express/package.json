@@ -5,10 +5,10 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "index1.js",
+  "main": "isAuthenticated.js",
   "scripts": {
-    "start": "node index1.js",
-    "dev": "nodemon index1.js"
+    "start": "node isAuthenticated.js",
+    "dev": "nodemon isAuthenticated.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
