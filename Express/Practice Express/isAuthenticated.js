@@ -22,20 +22,20 @@ mongoose.connect("mongodb://127.0.0.1:27017/", {
 })
 
 // Create Schema:
-const messageSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: String,
     email: String
 })
 
 // NOW I WILL CREATE MODEL OR CAN SAY COLLECTION..
-const Message = mongoose.model("Message", messageSchema);
+const user = mongoose.model("user", userSchema);
 
 // Ab mai data bejogi...
 app.get("/add", async(req, res) => {
 
     // Ab mai module ko use krlogi..and create jismai mera obj hoga...
-    // pehly data add hoga and then message mai 'Nice' chala jyega...
-    await Message.create({
+    // pehly data add hoga and then user mai 'Nice' chala jyega...
+    await user.create({
         name: "John Doe",
         email: "johndoe@example.com"
     })
@@ -78,17 +78,22 @@ app.get('/', isAuthenticated, (req, res) => {
     res.render("logout");
 })
 
-
-            //Authentication klye we will use Login...
+    //Authentication klye we will use Login...
 
 //-------Ye Login klye hai...
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     console.log(req.body);
-    
+    const { name, email} = req.body;
+    // create user...
+    const User = await user.create({
+        name,
+        email
+    })
+
     // cookies ko set krny klye we use res..
-    res.cookie("token", "iamin", {
+    res.cookie("token", User._id, {
         // cookie k kafi methids hoty hain, iss method ka mtlb hai k more secure rhyga...
-        // means client side pr message nahi krskty hum, bss server side pr krskty hain...
+        // means client side pr user nahi krskty hum, bss server side pr krskty hain...
         httpOnly: true,
         // expires ka mtlb hai k cookie kbtk store rhygi jesy meny batya hai k 60 seconds tk store rhy bs...
         expires: new Date(Date.now() + 60*100)
