@@ -95,8 +95,12 @@ app.get('/', (req, res) => {
     // const {token} = req.cookies
     console.log(token);
     
-    res.render("login")
-
+    if(token){
+        res.render("logout")
+    }
+    else{
+        res.render("login")
+    }
     // Render file...(Statically)
     // And meny file islye delete ki hai ku k index.html m sb comment b krdo fer b wo by default render hoti hai..
     // res.sendFile("index.html")
@@ -144,6 +148,7 @@ app.get("/users", (req, res) => {
 
 // Authentication klye we will use Login...
 
+//-------Ye Login klye hai...
 app.post("/login", (req, res) => {
     // cookies ko set krny klye we use res..
     res.cookie("token", "iamin", {
@@ -156,6 +161,16 @@ app.post("/login", (req, res) => {
     // redirect means k infinite times render hota rhy...
     res.redirect("/");
 })
+
+//-----------Ye logout klye hai...
+app.get("/logout", (req, res) => {
+    res.cookie("token", "null", {
+        httpOnly: true,
+        expires: new Date(Date.now())
+    });
+    res.redirect("/");
+})
+
 
 // 02-- listen server...
 app.listen(3000, () => {
