@@ -76,6 +76,15 @@ app.post('/users/new', async(req, res) => {
 // and keep in mind k browser sy request hum get method sy e krty hain na k post...
 app.get('/users/all', async(req, res) =>{
 
+    // -------Param in Postman --------------------
+
+    // jo params meny postman mai pass keye hain onko m yaahn acess kr skti o by using query..
+    console.log(req.query);
+    // and aghr m param m sy bs keyword ko chahtie hon tu i will do this:
+    console.log(req.query.noor);
+    //-----------------------------------------
+
+    
     // step np 8: ye step db k bd wala hai..
     // mongodb k ab hmary ps kafi methods hain.. so i will use find() here to get the data of all users...
     // find k sath jo user hai ye wala user.find(),, ye user oper model wala hai.. and {} isk andr hum {name: "noor"} ye krskty hain tu wo noor nam k users k data ko find krk dedyga
