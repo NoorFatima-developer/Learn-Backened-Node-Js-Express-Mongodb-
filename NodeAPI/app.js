@@ -64,7 +64,8 @@ app.post('/users/new', async(req, res) => {
         password,
     })
 
-    res.json({
+    // response mai hum status, cookie wagaira b deskty hain like this:
+    res.status(201).cookie("temp", "lol").json({
         success: true,
         message: "User added successfully"});
 })
