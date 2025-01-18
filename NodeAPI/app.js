@@ -1,15 +1,24 @@
 //01--- import express:
 import express from 'express';
+// import mongoose for db:
+import mongoose from'mongoose';
 
 //02--- create server:
 const app = express();
 
+// Ab mai yahan pr database ko connect krogi like this:
+mongoose.connect("mongodb://localhost:27017", {
+    dbName: "backend",
+}).then(() => console.log("Database connected"))
+.catch((e) => console.log(e));
+
+//04--
 app.get('/', (req, res) => {
     res.send('Hello World!');  // when we go to localhost:4000 then it will show hello world! on the browser. 
 })
 
 
-// Get data from API...
+//05-- Get data from API...
 app.get('/users/all', (req, res) =>{
         res.json({
             success: true,
