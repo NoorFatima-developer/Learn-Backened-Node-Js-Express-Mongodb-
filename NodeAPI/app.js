@@ -6,6 +6,14 @@ import mongoose from'mongoose';
 //02--- create server:
 const app = express();
 
+// 09--- lkin essy req.body ka data work ni kr rha postman mai 
+// ku k jb hum form ka data bejrhy thy tu tab hum log urlencoded middleware use kr rye thy
+// lkin yahan hum json m data bejry hain tu we will use below Middleware:
+
+// Using middleware:(to send req.body data)
+app.use(express.json());
+
+
 // --------------07--DB KA KAM START----------------------//
 
 //Ab mai yahan pr database ko connect krogi like this:
@@ -36,8 +44,34 @@ app.get('/', (req, res) => {
 })
 
 
-//and yahan find() method data leny klye islye hi use kea hai ku k hmry ps koi form ni h yahan pr..
-//05-- Get data from API...(API PATH is: /users/all)
+//08 step mai me post method use krk data ko create krogi...
+app.post('/users/new', async(req, res) => {
+    // destructuring the data...
+    const {name, email, password} = req.body;
+
+    // await user.create({
+    //     name: name,
+    //     email: email,
+    //     password: password,
+    // })
+
+    // destruture mai name, email, password same hai islye essy b likhskti o
+    // ab iss sbk andr jo data ayega wo postman sy hi ayega..ku k yahan m API mai form use ni kr ri...
+    // API sy data handle kr rhi o mai and wo hum log postman sy krty hain mostly...
+    await user.create({
+        name,
+        email,
+        password,
+    })
+
+    res.json({
+        success: true,
+        message: "User added successfully"});
+})
+
+
+// ----------ye basicalyy extra step hai sary users ka data find krny klye kea hai meny-------
+//9- Get data from API...(API PATH is: /users/all)
 // and keep in mind k browser sy request hum get method sy e krty hain na k post...
 app.get('/users/all', async(req, res) =>{
 
@@ -56,25 +90,9 @@ app.get('/users/all', async(req, res) =>{
         });
 });
 
-//05 step mai me post method use krk data ko create krogi jo oper get horha hai by get method....
-app.post('/users/new', async(req, res) => {
-
-    // destructuring the data...
-    const {name, email, password} = req.body;
-    await user.create({
-        name: "Noor",
-        email: "noor@example.com",
-        password: "aaajfhkgv",
-    })
-
-    res.json({
-        success: true,
-        message: "User added successfully"});
-})
-
 
 
 //03--- listen on port 4000:
-app.listen(4000, () => {
-    console.log('Server is running on port 4000');
+app.listen(5000, () => {
+    console.log('Server is running on port 5000');
 })
