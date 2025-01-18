@@ -36,29 +36,31 @@ app.get('/', (req, res) => {
 })
 
 
+//and yahan find() method data leny klye islye hi use kea hai ku k hmry ps koi form ni h yahan pr..
 //05-- Get data from API...(API PATH is: /users/all)
 // and keep in mind k browser sy request hum get method sy e krty hain na k post...
-// app.get('/users/all', (req, res) =>{
+app.get('/users/all', async(req, res) =>{
 
-//     // step np 8: ye step db k bd wala hai..
-//     // mongodb k ab hmary ps kafi methods hain.. so i will use find() here to get the data of all users...
-//     // find k sath jo user hai ye wala user.find(),, ye user oper model wala hai.. and {} isk andr hum {name: "noor"} ye krskty hain tu wo noor nam k users k data ko find krk dedyga
-//     const users = user.find({});
-//            //api k andr data json format mai bejty hain so did this:
-//         res.json({
-//             success: true,
-//             // and hum isk andr users pass krdygy empty array ki jagah
-//             // structure is: users: [],,,
-//             // users: users,
-//             // key value pairs same so essy b use krskty hain...
-//             users,
-//         });
-// });
+    // step np 8: ye step db k bd wala hai..
+    // mongodb k ab hmary ps kafi methods hain.. so i will use find() here to get the data of all users...
+    // find k sath jo user hai ye wala user.find(),, ye user oper model wala hai.. and {} isk andr hum {name: "noor"} ye krskty hain tu wo noor nam k users k data ko find krk dedyga
+    const users = await user.find({});
+           //api k andr data json format mai bejty hain so did this:
+        res.json({
+            success: true,
+            // and hum isk andr users pass krdygy empty array ki jagah
+            // structure is: users: [],,,
+            // users: users,
+            // key value pairs same so essy b use krskty hain...
+            users,
+        });
+});
 
+//05 step mai me post method use krk data ko create krogi jo oper get horha hai by get method....
+app.post('/users/new', async(req, res) => {
 
-//05 step again but with post method ku k get sy work ni kr rha..
-// and hum pehly user ko create krlety hain find ki bjye...
-app.post('/users/add', async(req, res) => {
+    // destructuring the data...
+    const {name, email, password} = req.body;
     await user.create({
         name: "Noor",
         email: "noor@example.com",
