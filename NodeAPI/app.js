@@ -27,11 +27,6 @@ const schema = new mongoose.Schema({
 const user = mongoose.model('User', schema);   
 
 
-
-
-
-
-
 // --------------DB KA KAM END HERE----------------------//
 
 
@@ -41,14 +36,23 @@ app.get('/', (req, res) => {
 })
 
 
-//05-- Get data from API...
+//05-- Get data from API...(API PATH is: /users/all)
 app.get('/users/all', (req, res) =>{
+
+    // step np 8: ye step db k bd wala hai..
+    // mongodb k ab hmary ps kafi methods hain.. so i will use find() here to get the data of all users...
+    // find k sath jo user hai ye wala user.find(),, ye user oper model wala hai.. and {} isk andr hum {name: "noor"} ye krskty hain tu wo noor nam k users k data ko find krk dedyga
+    const users = user.find({});
+           //api k andr data json format mai bejty hain so did this:
         res.json({
             success: true,
-            users: [],
+            // and hum isk andr users pass krdygy empty array ki jagah
+            // structure is: users: [],,,
+            // users: users,
+            // key value pairs same so essy b use krskty hain...
+            users,
         });
 });
-
 
 
 //03--- listen on port 4000:
