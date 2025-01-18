@@ -9,6 +9,14 @@ app.get('/', (req, res) => {
 })
 
 
+// Get data from API...
+app.get('/api/', (req, res) =>{
+        res.json({
+            success: true,
+            users: []
+        });
+});
+
 
 
 //03--- listen on port 4000:
