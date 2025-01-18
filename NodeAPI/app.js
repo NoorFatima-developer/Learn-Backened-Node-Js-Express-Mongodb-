@@ -1,17 +1,37 @@
 //01--- import express:
 import express from 'express';
-// import mongoose for db:
+//06-- import mongoose for db:
 import mongoose from'mongoose';
 
 //02--- create server:
 const app = express();
 
-// Ab mai yahan pr database ko connect krogi like this:
+// --------------07--DB KA KAM START----------------------//
+
+//Ab mai yahan pr database ko connect krogi like this:
 mongoose.connect("mongodb://localhost:27017", {
-    dbName: "backend",
+    dbName: "backendapi",
 }).then(() => console.log("Database connected"))
 .catch((e) => console.log(e));
 
+
+//Define a User Schema:
+
+
+const schema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+})
+
+
+
+
+
+
+
+
+// --------------DB KA KAM----------------------//
 //04--
 app.get('/', (req, res) => {
     res.send('Hello World!');  // when we go to localhost:4000 then it will show hello world! on the browser. 
@@ -22,7 +42,7 @@ app.get('/', (req, res) => {
 app.get('/users/all', (req, res) =>{
         res.json({
             success: true,
-            users: []
+            users: [],
         });
 });
 
