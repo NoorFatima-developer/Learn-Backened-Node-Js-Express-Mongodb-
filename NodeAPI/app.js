@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 
 // Get data from API...
-app.get('/api/', (req, res) =>{
+app.get('/users/all', (req, res) =>{
         res.json({
             success: true,
             users: []
