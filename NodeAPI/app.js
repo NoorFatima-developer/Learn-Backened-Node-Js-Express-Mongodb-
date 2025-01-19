@@ -3,8 +3,12 @@
 import express from 'express';
 // import user.js here..
 import userRouter from "../NodeAPI/routes/user.js"
+import { connectDB } from './data/database.js';
 
-const app = express();
+export const app = express();
+
+// Connect Db:(data/database mai pra hai..)
+connectDB();
 
 // Middleware:
 app.use(express.json());
