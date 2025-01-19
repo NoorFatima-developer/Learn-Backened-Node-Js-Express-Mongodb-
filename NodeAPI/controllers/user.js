@@ -51,6 +51,7 @@ export const query_id = async (req, res) => {
     })
 }
 
+// update userid:
 export const userupdate = async (req, res) => {
     const {id} = req.query;
     const { name, email } = req.body; 
@@ -63,7 +64,7 @@ export const userupdate = async (req, res) => {
     })
 }
 
-
+// delete userid:
 export const userdelete = async (req, res) => {
     const {id} = req.query;
     const userData = await user.findByIdAndDelete(id);
