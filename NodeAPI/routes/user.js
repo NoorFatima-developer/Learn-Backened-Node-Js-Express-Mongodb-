@@ -18,11 +18,11 @@ router.get('/all', getAllUsers);
 router.get("/userid", query_id );
 
 // userid:
-router.get("/userid/:id", param_id );
-// aghr user ki id ko update krna hai tu i will do this:
-router.put("/userid/:id", userupdate );
-// aghr user ki id ko delete krna hai tu i will do this:
-router.delete("/userid/:id", userdelete );
+// router.get("/userid/:id", param_id );
+// // aghr user ki id ko update krna hai tu i will do this:
+// router.put("/userid/:id", userupdate );
+// // aghr user ki id ko delete krna hai tu i will do this:
+// router.delete("/userid/:id", userdelete );
 
 // line 22 sy 27 ki bjye mai ye b krskti hon .. id ko e create update delete kr ri o mai..
 router.route("/userid/:id")
