@@ -1,9 +1,12 @@
 // iss file k andr mai routes banaogi in API..
-// and apna sara main code iss file m rkhogi mai...
+// and apna sara main code iss file m rkhogi mai...get post wagaira
+// and routers ko create krogi and export krogi...
+// and models mai o user.js k andr jo schema or model hai osko b import krlogi..
 
 import express from 'express';
+import { user } from '../models/user';
 
-// create router:
+// 01--create router:
 const router = express.Router();
 
 app.post('/users/new', async(req, res) => {
@@ -55,5 +58,5 @@ app.get("/userid", async (req, res) => {
 });
 
 
-// export router:
+// 02--export router:
 export default router;
