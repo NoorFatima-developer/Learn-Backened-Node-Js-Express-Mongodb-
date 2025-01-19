@@ -41,12 +41,36 @@ export const query_id = async (req, res) => {
     // const id = req.query.id;
     // essy b destructure krskty hain:
     const {id} = req.query;
-    const userData = await user.findById(id);
+    const userData = await user.findI(id);
     
     res.json({
         success: true,
         // user: id,
         user: userData, 
         
+    })
+}
+
+export const userupdate = async (req, res) => {
+    const {id} = req.query;
+    const { name, email } = req.body; 
+    const userData = await user.findByIdAndUpdate(id, {name, email}, {new: true});
+
+    res.json({
+        success: true,
+        user: userData,
+        message: "User updated successfully",  
+    })
+}
+
+
+export const userdelete = async (req, res) => {
+    const {id} = req.query;
+    const userData = await user.findByIdAndDelete(id);
+
+    res.json({
+        success: true,
+        user: userData, 
+        message: "User deleted successfully",   
     })
 }
