@@ -75,12 +75,12 @@ app.post('/users/new', async(req, res) => {
 // aghr tu meny get use kra hau phr mai req.params ya req.query krogi and aghr tu meny 
 // post use krna tu pjr mai req.body kr skti o..
 // app.get("/userid/:id", async (req, res) => {
+    
 //     // destructuring the data...
-
 //     // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
-
 //     // and postman mai link essy diangy: http://localhost:5000/userid/678cf2a609e47dcafad82ccc
 //     // id likhny k 2no tareky si hain...
+
 //     const { id } = req.params;
 //     // const id = req.params.id;
 //     const userData = await user.findById(id);
@@ -92,7 +92,7 @@ app.post('/users/new', async(req, res) => {
 // });
 
 //09-- query mai sa id find krny klye(without using /:id.. with query)
-
+// postman mai ye dena pryga: http://localhost:5000/userid?id=678cf2a609e47dcafad82ccc
 
 app.get("/userid", async (req, res) => {
     // const id = req.query.id;
