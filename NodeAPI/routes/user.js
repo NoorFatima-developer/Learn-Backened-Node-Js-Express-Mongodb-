@@ -9,57 +9,18 @@
 
 import express from 'express';
 import { user } from "../models/user.js"
+import { getAllUsers, param_id, query_id, register } from '../controllers/user.js';
 
 // 01--create router:(ab app.get nd app.post ki jagah router.get nd router.post use krlo..)
 const router = express.Router();
 
-router.post('/new', async(req, res) => {
-    const {name, email, password} = req.body;
-    await user.create({
-        name,
-        email,
-        password,
-    })
-    res.status(201).cookie("temp", "lol").json({
-        success: true,
-        message: "User added successfully"});
-})
+router.post('/new', register)
 
-router.get('/all', async(req, res) =>{
-    // -------Param in Postman --------------------
-    console.log(req.query);
-    console.log(req.query.noor);
-    //-----------------------------------------
-    const users = await user.find({});
-        res.json({
-            success: true,
-            users,
-        });
-});
+router.get('/all', getAllUsers);
 
-router.get("/userid/:id", async (req, res) => {
-    const { id } = req.params;
-    const userData = await user.findById(id);
-    // res.send(`The ID is: ${id}`);
-    res.json({
-        success: true,  
-        user: userData, 
-    })
-});
+router.get("/userid/:id", param_id );
 
-router.get("/userid/", async (req, res) => {
-    // const id = req.query.id;
-    // essy b destructure krskty hain:
-    const {id} = req.query;
-    const userData = await user.findById(id);
-    
-    res.json({
-        success: true,
-        // user: id,
-        user: userData, 
-        
-    })
-});
+router.get("/userid/", query_id );
 
 
 // 02--export router:
