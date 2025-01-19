@@ -3,9 +3,15 @@
 import express from 'express';
 // import user.js here..
 import userRouter from "../NodeAPI/routes/user.js"
+// end mai jo env fil banae hai oska path b isk andr dena hai mjhy..
+import { config } from 'dotenv';
 
 // export tb use krty hain jb next file mai import krna ho...
 export const app = express();
+
+config({
+    path: './data/config.env'
+})
 
 // Middleware:
 app.use(express.json());
