@@ -74,22 +74,23 @@ app.post('/users/new', async(req, res) => {
 //09-- query mai sy data ko destructure:(by using /:id..with params:)
 // aghr tu meny get use kra hau phr mai req.params ya req.query krogi and aghr tu meny 
 // post use krna tu pjr mai req.body kr skti o..
-// app.get("/userid/:id", async (req, res) => {
-    
-//     // destructuring the data...
-//     // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
-//     // and postman mai link essy diangy: http://localhost:5000/userid/678cf2a609e47dcafad82ccc
-//     // id likhny k 2no tareky si hain...
 
-//     const { id } = req.params;
-//     // const id = req.params.id;
-//     const userData = await user.findById(id);
-//     // res.send(`The ID is: ${id}`);
-//     res.json({
-//         success: true,  
-//         user: userData, 
-//     })
-// });
+app.get("/userid/:id", async (req, res) => {
+
+    // destructuring the data...
+    // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
+    // and postman mai link essy diangy: http://localhost:5000/userid/678cf2a609e47dcafad82ccc
+    // id likhny k 2no tareky si hain...
+
+    const { id } = req.params;
+    // const id = req.params.id;
+    const userData = await user.findById(id);
+    // res.send(`The ID is: ${id}`);
+    res.json({
+        success: true,  
+        user: userData, 
+    })
+});
 
 //09-- query mai sa id find krny klye(without using /:id.. with query)
 // postman mai ye dena pryga: http://localhost:5000/userid?id=678cf2a609e47dcafad82ccc
@@ -107,6 +108,13 @@ app.get("/userid", async (req, res) => {
         
     })
 });
+
+
+// Line no74 sy 110 tk jo code hai wo mjy ye kehta hai k:
+// aghr tu meny id sy data bejna hai tu 2 tareqy hain get and post:
+// aghr tu meny post sy bejna hai tu i will sue req.body..
+// and aghr tu meny get sy bejna hai tu i will use query method ya param method....
+// and make sure k mai data json format mai bejri o tu middkeware must use...
 
 
 // ----------ye basicalyy extra step hai sary users ka data find krny klye kea hai meny-------
