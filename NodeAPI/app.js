@@ -3,16 +3,12 @@
 import express from 'express';
 // import user.js here..
 import userRouter from "../NodeAPI/routes/user.js"
-import { connectDB } from './data/database.js';
 
+// export tb use krty hain jb next file mai import krna ho...
 export const app = express();
-
-// Connect Db:(data/database mai pra hai..)
-connectDB();
 
 // Middleware:
 app.use(express.json());
-
 // use userRouter:(and router ko hum log use hi islye krty hain ta k hum log prefix add krskain)
 // jesy mai chahti o k routers/user k andr jutny b get post hain or onka jo b router hai hr 1 k start mai /users daldo 
 // iss sy ye hoga k mjy manually ja k ni add krna pryga automatically add o jyega islye meny wahan sbsy remove krk yahan add krdea hai...
@@ -22,7 +18,3 @@ app.get('/', (req, res) => {
     res.send('Hello World!');  
 })
 
-//03--- listen on port 5000:
-app.listen(4000, () => {
-    console.log('Server is running on port 5000');
-})
