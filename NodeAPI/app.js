@@ -78,7 +78,10 @@ app.get("/userid/:id", async (req, res) => {
     // destructuring the data...
 
     // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
+
+    // id likhny k 2no tareky si hain...
     const { id } = req.params;
+    // const id = req.params.id;
     const userData = await user.findById(id);
     // res.send(`The ID is: ${id}`);
     res.json({
