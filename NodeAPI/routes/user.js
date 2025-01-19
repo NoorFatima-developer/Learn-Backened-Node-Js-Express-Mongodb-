@@ -1,4 +1,5 @@
-// isk file k andr mai routes banaogi in API..
+// iss file k andr mai routes banaogi in API..
+// and apna sara main code iss file m rkhogi mai...
 
 import express from 'express';
 
