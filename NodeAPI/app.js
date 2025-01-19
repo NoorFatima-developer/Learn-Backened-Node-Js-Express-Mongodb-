@@ -71,22 +71,40 @@ app.post('/users/new', async(req, res) => {
         message: "User added successfully"});
 })
 
-//09-- query mai sy data ko destructure:(by using id..)
+//09-- query mai sy data ko destructure:(by using /:id..with params:)
 // aghr tu meny get use kra hau phr mai req.params ya req.query krogi and aghr tu meny 
 // post use krna tu pjr mai req.body kr skti o..
-app.get("/userid/:id", async (req, res) => {
-    // destructuring the data...
+// app.get("/userid/:id", async (req, res) => {
+//     // destructuring the data...
 
-    // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
+//     // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
 
-    // id likhny k 2no tareky si hain...
-    const { id } = req.params;
-    // const id = req.params.id;
+//     // and postman mai link essy diangy: http://localhost:5000/userid/678cf2a609e47dcafad82ccc
+//     // id likhny k 2no tareky si hain...
+//     const { id } = req.params;
+//     // const id = req.params.id;
+//     const userData = await user.findById(id);
+//     // res.send(`The ID is: ${id}`);
+//     res.json({
+//         success: true,  
+//         user: userData, 
+//     })
+// });
+
+//09-- query mai sa id find krny klye(without using /:id.. with query)
+
+
+app.get("/userid", async (req, res) => {
+    // const id = req.query.id;
+    // essy b destructure krskty hain:
+    const {id} = req.query;
     const userData = await user.findById(id);
-    // res.send(`The ID is: ${id}`);
+    
     res.json({
-        success: true,  
+        success: true,
+        // user: id,
         user: userData, 
+        
     })
 });
 
