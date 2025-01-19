@@ -8,7 +8,6 @@
 // Basically hum log routes sy prefix add krskty hain...
 
 import express from 'express';
-import { user } from "../models/user.js"
 import { getAllUsers, param_id, query_id, register } from '../controllers/user.js';
 
 // 01--create router:(ab app.get nd app.post ki jagah router.get nd router.post use krlo..)

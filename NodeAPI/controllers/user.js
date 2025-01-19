@@ -15,7 +15,6 @@ export const getAllUsers = async(req, res) =>{
         });
 }
 
-
 export const register = async(req, res) => {
     const {name, email, password} = req.body;
     await user.create({
@@ -27,8 +26,6 @@ export const register = async(req, res) => {
         success: true,
         message: "User added successfully"});
 }
-
-
 
 export const param_id = async (req, res) => {
     const { id } = req.params;
