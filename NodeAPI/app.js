@@ -55,6 +55,7 @@ app.post('/users/new', async(req, res) => {
     //     password: password,
     // })
 
+
     // destruture mai name, email, password same hai islye essy b likhskti o
     // ab iss sbk andr jo data ayega wo postman sy hi ayega..ku k yahan m API mai form use ni kr ri...
     // API sy data handle kr rhi o mai and wo hum log postman sy krty hain mostly...
@@ -70,12 +71,27 @@ app.post('/users/new', async(req, res) => {
         message: "User added successfully"});
 })
 
+//09-- query mai sy data ko destructure:(by using id..)
+// aghr tu meny get use kra hau phr mai req.params ya req.query krogi and aghr tu meny 
+// post use krna tu pjr mai req.body kr skti o..
+app.get("/userid/:id", async (req, res) => {
+    // destructuring the data...
+
+    // aghr tu body m data bejna hai tu ya tu post request kro ya fer aghr get krna hai tu phr req.query kro na k req.body
+    const { id } = req.params;
+    const userData = await user.findById(id);
+    // res.send(`The ID is: ${id}`);
+    res.json({
+        success: true,  
+        user: userData, 
+    })
+});
+
 
 // ----------ye basicalyy extra step hai sary users ka data find krny klye kea hai meny-------
-//9- Get data from API...(API PATH is: /users/all)
+//10- Get data from API...(API PATH is: /users/all)
 // and keep in mind k browser sy request hum get method sy e krty hain na k post...
 app.get('/users/all', async(req, res) =>{
-
     // -------Param in Postman --------------------
 
     // jo params meny postman mai pass keye hain onko m yaahn acess kr skti o by using query..
@@ -84,7 +100,6 @@ app.get('/users/all', async(req, res) =>{
     console.log(req.query.noor);
     //-----------------------------------------
 
-    
     // step np 8: ye step db k bd wala hai..
     // mongodb k ab hmary ps kafi methods hain.. so i will use find() here to get the data of all users...
     // find k sath jo user hai ye wala user.find(),, ye user oper model wala hai.. and {} isk andr hum {name: "noor"} ye krskty hain tu wo noor nam k users k data ko find krk dedyga
@@ -101,8 +116,7 @@ app.get('/users/all', async(req, res) =>{
 });
 
 
-
-//03--- listen on port 4000:
+//03--- listen on port 5000:
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 })
