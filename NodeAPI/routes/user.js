@@ -3,8 +3,12 @@
 // and routers ko create krogi and export krogi...
 // and models mai o user.js k andr jo schema or model hai osko b import krlogi..
 
+// Why we use Routes?????????????????????????????
+
+// Basically hum log routes sy prefix add krskty hain...
+
 import express from 'express';
-import { user } from '../models/user';
+import { user } from "../models/user.js"
 
 // 01--create router:(ab app.get nd app.post ki jagah router.get nd router.post use krlo..)
 const router = express.Router();

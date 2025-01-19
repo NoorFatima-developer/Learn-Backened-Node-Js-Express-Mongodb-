@@ -4,7 +4,7 @@
 import express from 'express';
 import mongoose from'mongoose';
 // import user.js here..
-import userRouter from './routes/user.js';
+import userRouter from "../NodeAPI/routes/user.js"
 
 const app = express();
 
