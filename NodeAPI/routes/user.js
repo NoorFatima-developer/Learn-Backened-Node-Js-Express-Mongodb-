@@ -13,7 +13,7 @@ import { user } from "../models/user.js"
 // 01--create router:(ab app.get nd app.post ki jagah router.get nd router.post use krlo..)
 const router = express.Router();
 
-router.post('/users/new', async(req, res) => {
+router.post('/new', async(req, res) => {
     const {name, email, password} = req.body;
     await user.create({
         name,
@@ -25,7 +25,7 @@ router.post('/users/new', async(req, res) => {
         message: "User added successfully"});
 })
 
-router.get('/users/all', async(req, res) =>{
+router.get('/all', async(req, res) =>{
     // -------Param in Postman --------------------
     console.log(req.query);
     console.log(req.query.noor);
@@ -47,7 +47,7 @@ router.get("/userid/:id", async (req, res) => {
     })
 });
 
-router.get("/userid", async (req, res) => {
+router.get("/userid/", async (req, res) => {
     // const id = req.query.id;
     // essy b destructure krskty hain:
     const {id} = req.query;
