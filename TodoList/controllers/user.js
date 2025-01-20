@@ -1,5 +1,20 @@
 import { user } from "../models/user.js";
 
+// post method:
+export const register = async(req, res) => {    // destruturing:
+    const { name, email, password} = req.body;
+    await user.create({
+        name,
+        email,
+        password,
+    })
+    res.status(201).cookie("tempi", "lol").json({
+        success: true,
+        message: "User registered successfully",
+    })
+};
+
+// get method:
 export const getAllUsers = async(req, res) => {
    const users = await user.find({});
 
@@ -11,22 +26,15 @@ export const getAllUsers = async(req, res) => {
     success: true,
     users: users,
    })
-   
 }
 
-export const register = async(req, res) => {
-   
-    // destruturing:
-    const { name, email, password} = req.body;
-    
-    await user.create({
-        name,
-        email,
-        password,
-    })
+// get method:
+export const getUserid = async(req, res) => {
+    const {id} = req.query;
+    const userdata = await user.findById(id);
 
-    res.status(201).cookie("tempi", "lol").json({
+    res.json({
         success: true,
-        message: "User registered successfully",
+        user: userdata,
     })
 };
