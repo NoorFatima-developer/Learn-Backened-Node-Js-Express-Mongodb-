@@ -1,6 +1,6 @@
 import { user } from "../models/user.js";
 
-// post:
+// post:(for registration)
 export const register = async(req, res) => {    // destruturing:
     const { name, email, password} = req.body;
     await user.create({
@@ -13,6 +13,22 @@ export const register = async(req, res) => {    // destruturing:
         message: "User registered successfully",
     })
 };
+
+// post:(for login)
+export const login = async(req, res) => {    // destruturing:
+    const { name, email, password} = req.body;
+    await user.create({
+        name,
+        email,
+        password,
+    })
+    res.status(201).cookie("tempi", "lol").json({
+        success: true,
+        message: "User registered successfully",
+    })
+};
+
+
 
 // get:
 export const getAllUsers = async(req, res) => {
