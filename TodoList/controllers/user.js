@@ -29,7 +29,7 @@ export const register = async(req, res) => {    // destruturing:
     // aghr tu m chahti o register successfuly hony k bd wo lpgin page pr redurect krjye tu i can use cookie for that:
     // and cookies mai token secure form mai bejny klye we use jsonwebtoken...
     // and cookie ka nam "token" hai and ab oss token ki value hum khud manual b deskty hain
-    // but hum chahty hain k oski value 
+    // but hum wo value dalna chahty hain
     // otherwise message hi thek hai...
     res.status(201).cookie("register", "successfully").json({
         success: true,
@@ -49,8 +49,6 @@ export const login = async(req, res) => {    // destruturing:
         message: "User login successfully",
     })
 };
-
-
 
 // get:
 export const getAllUsers = async(req, res) => {
