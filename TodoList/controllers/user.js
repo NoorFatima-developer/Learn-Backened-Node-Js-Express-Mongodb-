@@ -18,7 +18,6 @@ export const register = async(req, res) => {    // destruturing:
         })
     }
 
-
     await user.create({
         name,
         email,
