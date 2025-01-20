@@ -13,7 +13,7 @@ config({
     path: './data/config.env'
 })
 
-// Middleware:
+// Middleware:(and middleware must use before userRouter)
 app.use(express.json());
 // use userRouter:(and router ko hum log use hi islye krty hain ta k hum log prefix add krskain)
 // jesy mai chahti o k routers/user k andr jutny b get post hain or onka jo b router hai hr 1 k start mai /users daldo 
