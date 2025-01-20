@@ -1,11 +1,15 @@
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        unique: true,
+        required: true,
+    },
     email: {
         type: String,
         unique: true,
-        // required: true,
+        required: true,
         // match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         // lowercase: true,
         // trim: true,
@@ -13,7 +17,7 @@ const schema = new mongoose.Schema({
     password: {
         type: String,
         select: false,
-        // required: true,
+        required: true,
         // minlength: 8,
         // match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     },
