@@ -35,7 +35,10 @@ export const register = async(req, res) => {    // destruturing:
 
     const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
 
-    res.status(201).cookie("token", "successfully").json({
+    res.status(201).cookie("token", token, {
+        httpOnly: true,
+        maxAge: 15 * 60 * 1000,
+    }).json({
         success: true,
         message: "User registered successfully",
     })
