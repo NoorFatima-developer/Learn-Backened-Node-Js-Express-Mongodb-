@@ -1,6 +1,6 @@
 import { user } from "../models/user.js";
 
-// post method:
+// post:
 export const register = async(req, res) => {    // destruturing:
     const { name, email, password} = req.body;
     await user.create({
@@ -14,7 +14,7 @@ export const register = async(req, res) => {    // destruturing:
     })
 };
 
-// get method:
+// get:
 export const getAllUsers = async(req, res) => {
    const users = await user.find({});
 
@@ -28,7 +28,7 @@ export const getAllUsers = async(req, res) => {
    })
 }
 
-// get method:
+// get:
 export const getUserid = async(req, res) => {
     const {id} = req.query;
     const userdata = await user.findById(id);
