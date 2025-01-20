@@ -7,7 +7,17 @@ export const register = async(req, res) => {    // destruturing:
 
     // const user = await user.findOne({ email: email});
     // key value pair ko essy b likh skty hain:
+
+    // register mai wo user create krny sy pehly check kryga k user already exist tu ni kr rha or wo email sy verify kryga...
+  
     const user = await user.findOne({ email: email});
+    if(user){
+        return res.status(400).json({
+            success: false,
+            message: "User already exists",
+        })
+    }
+
 
     await user.create({
         name,
