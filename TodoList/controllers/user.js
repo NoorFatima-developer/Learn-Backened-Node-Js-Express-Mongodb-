@@ -1,4 +1,5 @@
 import { user } from "../models/user.js";
+import bcrypt from bcrypt;
 
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
@@ -16,15 +17,14 @@ export const register = async(req, res) => {    // destruturing:
 
 // post:(for login)
 export const login = async(req, res) => {    // destruturing:
-    const { name, email, password} = req.body;
+    const {email, password} = req.body;
     await user.create({
-        name,
         email,
         password,
     })
-    res.status(201).cookie("tempi", "lol").json({
+    res.json({
         success: true,
-        message: "User registered successfully",
+        message: "User login successfully",
     })
 };
 
