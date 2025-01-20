@@ -26,7 +26,9 @@ export const register = async(req, res) => {    // destruturing:
         email,
         password: hashedPassword,
     })
-    res.status(201).cookie("tempi", "lol").json({
+    // aghr tu m chahti o register successfuly hony k bd wo lpgin page pr redurect krjye tu i can use cookie for that:
+    // otherwise message hi thek hai...
+    res.status(201).cookie("register", "successfully").json({
         success: true,
         message: "User registered successfully",
     })
