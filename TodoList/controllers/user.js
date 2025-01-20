@@ -1,5 +1,6 @@
 import { user } from "../models/user.js";
 import bcrypt from bcrypt;
+import jwt from "jsonwebtoken";
 
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
@@ -10,7 +11,7 @@ export const register = async(req, res) => {    // destruturing:
 
     // register mai wo user create krny sy pehly check kryga k user already exist tu ni kr rha or wo email sy verify kryga...
   
-    const user = await user.findOne({ email: email});
+    let user = await user.findOne({ email: email});
     if(user){
         return res.status(400).json({
             success: false,
@@ -21,7 +22,7 @@ export const register = async(req, res) => {    // destruturing:
     // lkin password hash ki form mai secure krk bejna hai tu i will do this:
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await user.create({
+    user = await user.create({
         name,
         email,
         password: hashedPassword,
@@ -29,9 +30,12 @@ export const register = async(req, res) => {    // destruturing:
     // aghr tu m chahti o register successfuly hony k bd wo lpgin page pr redurect krjye tu i can use cookie for that:
     // and cookies mai token secure form mai bejny klye we use jsonwebtoken...
     // and cookie ka nam "token" hai and ab oss token ki value hum khud manual b deskty hain
-    // but hum wo value dalna chahty hain
+    // but hum wo value daaingy jo user k data k lehaz sy hr dfa change ho tu chlo token create krty hain..
     // otherwise message hi thek hai...
-    res.status(201).cookie("register", "successfully").json({
+
+    const token = jwt.sign({})
+
+    res.status(201).cookie("token", "successfully").json({
         success: true,
         message: "User registered successfully",
     })
