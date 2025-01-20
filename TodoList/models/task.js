@@ -1,16 +1,23 @@
 import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
-    name: String,
-    email: {
+    title: {
         type: String,
-        unique: true,
+        required: true,
     },
-    password: {
+    description: {
         type: String,
-        select: false,
+        required: true,
     },
-
+    isCompleted: {
+        type: Boolean,
+        default: false,
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
     // createAt mandatory nahi hai but iss sy ye pta chljyega k user kb create hoa hai...
     createAt: {
         type: Date,
