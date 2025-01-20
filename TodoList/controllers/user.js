@@ -4,6 +4,11 @@ import bcrypt from bcrypt;
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
     const { name, email, password} = req.body;
+
+    // const user = await user.findOne({ email: email});
+    // key value pair ko essy b likh skty hain:
+    const user = await user.findOne({ email: email});
+
     await user.create({
         name,
         email,
