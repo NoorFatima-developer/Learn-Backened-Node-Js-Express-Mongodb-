@@ -33,7 +33,7 @@ export const register = async(req, res) => {    // destruturing:
     // but hum wo value daaingy jo user k data k lehaz sy hr dfa change ho tu chlo token create krty hain..
     // otherwise message hi thek hai...
 
-    const token = jwt.sign({})
+    const token = jwt.sign({_id:user._id})
 
     res.status(201).cookie("token", "successfully").json({
         success: true,
