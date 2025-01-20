@@ -18,10 +18,13 @@ export const register = async(req, res) => {    // destruturing:
         })
     }
 
+    // lkin password hash ki form mai secure krk bejna hai tu i will do this:
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     await user.create({
         name,
         email,
-        password,
+        password: hashedPassword,
     })
     res.status(201).cookie("tempi", "lol").json({
         success: true,
