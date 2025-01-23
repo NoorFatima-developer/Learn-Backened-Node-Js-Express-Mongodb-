@@ -42,16 +42,29 @@ export const register = async(req, res) => {    // destruturing:
 };
 
 // post:(for login)
-export const login = async(req, res) => {    // destruturing:
+export const login = async(req, res) => {    
+    // destruturing:
     const {email, password} = req.body;
-    await User.create({
+
+    let user = await User.findOne({ email: email});
+    if(!user){
+        return res.status(400).json({
+            success: false,
+            message: "Invalid email and password",
+        })
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    user = await User.create({
         email,
-        password,
+        password: hashedPassword,
     })
     res.json({
         success: true,
         message: "User login successfully",
     })
+    sendCookie(user, res, "Login Successfully", 201)
 };
 
 // get:
@@ -66,6 +79,7 @@ export const getAllUsers = async(req, res) => {
     success: true,
     users: users,
    })
+
 }
 
 // get:
