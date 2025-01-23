@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/new", register);
 router.post("/login", login);
 router.get("/me" , getmyProfileWithsimplycookiedecodedtoken);
-router.get("/Me" , isAuthenticated, getmyProfilebyAuthenticatedMiddleware);
+router.get("/isauth" , isAuthenticated, getmyProfilebyAuthenticatedMiddleware);
 router.get("/all", getAllUsers);
 
 export default router;
