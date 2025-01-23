@@ -1,6 +1,6 @@
 import express from 'express';
-import { newTask } from '../controllers/task';
-import { isAuthenticated } from '../middlewares/auth';
+import { newTask } from '../controllers/task.js';
+import { isAuthenticated } from '../middlewares/auth.js';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
+import Task from "../routes/task.js";
 
-import Task from "../models/task.js"
 export const newTask = async (req, res, next) => {
 
     const {title, description} = req.body
