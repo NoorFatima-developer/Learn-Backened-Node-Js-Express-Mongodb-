@@ -1,6 +1,7 @@
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { sendCookie } from "../utils/features.js";
 
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
@@ -27,7 +28,7 @@ export const register = async(req, res) => {    // destruturing:
         email,
         password: hashedPassword,
     })
-    
+
     // aghr tu m chahti o register successfuly hony k bd wo lpgin page pr redurect krjye tu i can use cookie for that:
     // and cookies mai token secure form mai bejny klye we use jsonwebtoken...
     // and cookie ka nam "token" hai and ab oss token ki value hum khud manual b deskty hain
@@ -36,6 +37,8 @@ export const register = async(req, res) => {    // destruturing:
 
     // ab yahan jo meny token create kea hai na osko me resue b krsko islye meny aleda file m bana dea hai
     // utilities k folder k andr features.js k andr..
+
+    sendCookie(user, res, "Registered Successfully", 201)
 };
 
 // post:(for login)
