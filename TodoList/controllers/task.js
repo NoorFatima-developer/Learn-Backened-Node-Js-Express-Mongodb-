@@ -25,4 +25,6 @@ export const newTask = async (req, res, next) => {
 
 export const getTasks = async (req, res, next) => {
     const userid = require.user._id;
+
+    const tasks = await Task.find({userid})
 }
