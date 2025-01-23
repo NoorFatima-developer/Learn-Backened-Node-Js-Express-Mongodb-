@@ -1,6 +1,8 @@
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 import { sendCookie } from "../utils/features.js";
+import jwt from 'jsonwebtoken';
+
 
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
@@ -68,6 +70,8 @@ export const login = async(req, res) => {
 };
 
 
+
+
 // get:
 export const getmyProfile = async(req, res) => {
     // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
@@ -91,13 +95,11 @@ export const getmyProfile = async(req, res) => {
         })
     }
 
-    // abi token ni tha oper tk..ab iss line sy ayega token decoded mai...
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decoded);
-    
+    //token tu oper cookies sy araha hai lkin ye line ensure krygi k kea token valid hai ya expired aghr valid h wo agy bejdygi next line mai and hum     
+    const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+    // ab wo iss line mai decoded._id ko oper token jo aya hai oss token ki id wala data return krdyga..   
     const user = await User.findById(decoded._id);
     
-
     res.status(200).json({
         success: true,
         // ye token console m check klye tha bs..
