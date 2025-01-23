@@ -110,24 +110,12 @@ export const login = async(req, res) => {
 
 // 02----way to access data by id...(using authenticated middleware)
 
-export const getmyProfilebyAuthenticatedMiddleware = async(req, res) => {
+export const getmyProfilebyAuthenticatedMiddleware = (req, res) => {
 
-    const { token }  = req.cookies;
-    console.log(token);
-    
-    if(!token){
-        return res.status(401).json({
-            success: false,
-            message: "Login First",
-        })
-    }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET); 
-    const user = await User.findById(decoded._id);
     
     res.status(200).json({
         success: true,
-        user,
+        user: req.user,
     })
 };
 

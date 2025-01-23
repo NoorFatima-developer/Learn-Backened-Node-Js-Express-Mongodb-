@@ -16,5 +16,6 @@ export const isAuthenticated = async(req, res, next) => {
     // jb hum simply cookie token sy data id mai bejty thy tu we save in a user
     // yahan pr we will save in a "req.user"
     const user = await User.findById(decoded._id);
+    // and isk bd next ko call krdea,,,and next kea hai wo m routes mai user.js mai dekh skti o..
     next();
 }
