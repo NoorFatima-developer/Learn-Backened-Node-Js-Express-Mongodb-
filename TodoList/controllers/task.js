@@ -1,4 +1,4 @@
-import Task from "../routes/task.js";
+import Task from "../models/task.js";
 
 export const newTask = async (req, res, next) => {
 
@@ -21,4 +21,8 @@ export const newTask = async (req, res, next) => {
         success: true,
         message: "Task created successfully",
     })
+}
+
+export const getTasks = async (req, res, next) => {
+    const userid = require.user._id;
 }
