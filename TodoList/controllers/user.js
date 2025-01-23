@@ -83,7 +83,7 @@ export const getAllUsers = async(req, res) => {
 }
 
 // get:
-export const getUserid = async(req, res) => {
+export const getmyProfile = async(req, res) => {
     const {id} = req.query;
     const userdata = await User.findById(id);
 
