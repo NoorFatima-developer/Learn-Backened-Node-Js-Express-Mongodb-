@@ -11,7 +11,14 @@ export const newTask = async (req, res, next) => {
     // but hum create sy krty hain ku k wo 1 line mai hota hai:
 
     await Task.create({
-        title, description, user:req.user,
+        title,
+        description, 
+        // ye user wala islye dea hai ta k sirf whi user task add krsky jo login hai...
+        user:req.user,
     })
 
+    res.status(201).json({
+        success: true,
+        message: "Task created successfully",
+    })
 }
