@@ -24,7 +24,7 @@ app.use(cookieParser());
 // jesy mai chahti o k routers/user k andr jutny b get post hain or onka jo b router hai hr 1 k start mai /users daldo 
 // iss sy ye hoga k mjy manually ja k ni add krna pryga automatically add o jyega islye meny wahan sbsy remove krk yahan add krdea hai...
 app.use("/api/v1/users" ,userRouter);
-app.use("/api/v1/users", taskRouter);
+app.use("/api/v1/task", taskRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');  
