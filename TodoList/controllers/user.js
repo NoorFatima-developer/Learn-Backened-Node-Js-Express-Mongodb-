@@ -78,13 +78,31 @@ export const getmyProfile = async(req, res) => {
     // const id = req.params.id;
     // lkin iss case mai me na query m dena chahti o na param mai tu i will use htis:
     const id = "myid";
-
     // remember k abhi hum log login hain and hum token sy id access krskty hain
-    const userdata = await User.findById(id);
+    // cookies sy so jao app.js mai and middleware cookieParser use kro..s
 
-    res.json({
+    const { token }  = req.cookies;
+    console.log(token);
+    
+    if(!token){
+        return res.status(401).json({
+            success: false,
+            message: "No token, authorization denied",
+        })
+    }
+
+    // abi token ni tha oper tk..ab iss line sy ayega token decoded mai...
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decoded);
+    
+    const user = await User.findById(decoded._id);
+    
+
+    res.status(200).json({
         success: true,
-        user: userdata,
+        // ye token console m check klye tha bs..
+        // user: "ahjbhhjjuuii",
+        user:user,
     })
 };
 
