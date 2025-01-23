@@ -1,6 +1,5 @@
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { sendCookie } from "../utils/features.js";
 
 // post:(for registration)
@@ -37,7 +36,7 @@ export const register = async(req, res) => {    // destruturing:
     // ab yahan jo meny token create kea hai na osko me resue b krsko islye meny aleda file m bana dea hai
     // utilities k folder k andr features.js k andr..
 
-    sendCookie(user, res, "Registered Successfully", 201)
+    sendCookie(user, res, 201, "Registered Successfully")
 };
 
 // post:(for login)
@@ -64,7 +63,7 @@ export const login = async(req, res) => {
         })
     }
 
-    sendCookie(user, res, `Welcome back, ${user.name}`, 200)
+    sendCookie(user, res, 200, `Welcome back, ${user.name}`)
 
 };
 
@@ -86,7 +85,7 @@ export const getAllUsers = async(req, res) => {
 // get:
 export const getUserid = async(req, res) => {
     const {id} = req.query;
-    const userdata = await user.findById(id);
+    const userdata = await User.findById(id);
 
     res.json({
         success: true,
