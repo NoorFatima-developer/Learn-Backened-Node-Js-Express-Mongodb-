@@ -24,7 +24,13 @@ export const newTask = async (req, res, next) => {
 }
 
 export const getTasks = async (req, res, next) => {
-    const userid = require.user._id;
 
-    const tasks = await Task.find({userid})
+    const userid = req.user._id;
+    // find method puri array return krta hai islye we will use find instead of findbyid...
+    const tasks = await Task.find({user:userid})
+
+    res.status(200).json({
+        success: true,
+        tasks:tasks,
+    })
 }
