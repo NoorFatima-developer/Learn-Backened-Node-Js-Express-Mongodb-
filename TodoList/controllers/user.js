@@ -78,6 +78,8 @@ export const getmyProfile = async(req, res) => {
     // const id = req.params.id;
     // lkin iss case mai me na query m dena chahti o na param mai tu i will use htis:
     const id = "myid";
+
+    // remember k abhi hum log login hain and hum token sy id access krskty hain
     const userdata = await User.findById(id);
 
     res.json({
