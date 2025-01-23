@@ -69,9 +69,11 @@ export const login = async(req, res) => {
 
 };
 
+
+// 01----way to access data by id...
 // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
 // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
-export const getmyProfile = async(req, res) => {
+    export const getmyProfileWithsimplycookiedecodedtoken = async(req, res) => {
     // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
     // const {id} = req.query;
     // or
@@ -103,6 +105,29 @@ export const getmyProfile = async(req, res) => {
         // ye token console m check klye tha bs..
         // user: "ahjbhhjjuuii",
         user:user,
+    })
+};
+
+// 02----way to access data by id...(using authenticated middleware)
+
+export const getmyProfilebyAuthenticatedMiddleware = async(req, res) => {
+
+    const { token }  = req.cookies;
+    console.log(token);
+    
+    if(!token){
+        return res.status(401).json({
+            success: false,
+            message: "Login First",
+        })
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+    const user = await User.findById(decoded._id);
+    
+    res.status(200).json({
+        success: true,
+        user,
     })
 };
 
