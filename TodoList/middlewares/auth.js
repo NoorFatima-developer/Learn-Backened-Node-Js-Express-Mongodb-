@@ -13,5 +13,8 @@ export const isAuthenticated = async(req, res, next) => {
     
     const decoded = jwt.verify(token, process.env.JWT_SECRET); 
 
-    const user = await User.findById(decoded._id)
+    // jb hum simply cookie token sy data id mai bejty thy tu we save in a user
+    // yahan pr we will save in a "req.user"
+    const user = await User.findById(decoded._id);
+    next();
 }
