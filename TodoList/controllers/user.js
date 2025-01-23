@@ -46,7 +46,7 @@ export const login = async(req, res) => {
     const {email, password} = req.body;
 
     // meny models m user.js mai password field mai select false kea hai... islye yahan manually password set krna hoga..
-    let user = await User.findOne({ email: email});
+    let user = await User.findOne({ email: email}).select("+password");
     if(!user){
         return res.status(400).json({
             success: false,
