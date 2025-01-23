@@ -47,6 +47,7 @@ export const login = async(req, res) => {
 
     // meny models m user.js mai password field mai select false kea hai... islye yahan manually password set krna hoga..
     let user = await User.findOne({ email: email}).select("+password");
+
     if(!user){
         return res.status(400).json({
             success: false,
@@ -55,6 +56,16 @@ export const login = async(req, res) => {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+
+    if(!isMatch){
+        return res.status(400).json({
+            success: false,
+            message: "Invalid email and password",
+        })
+    }
+
+    sendCookie(user, res, `Welcome back, ${user.name}`)
+
 };
 
 // get:
