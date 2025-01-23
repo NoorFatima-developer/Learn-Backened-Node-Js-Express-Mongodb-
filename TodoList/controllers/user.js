@@ -111,7 +111,6 @@ export const login = async(req, res) => {
 // 02----way to access data by id...(using authenticated middleware)
 
 export const getmyProfilebyAuthenticatedMiddleware = (req, res) => {
-
     
     res.status(200).json({
         success: true,
