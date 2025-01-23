@@ -16,8 +16,8 @@ const schema = new mongoose.Schema({
     },
     password: {
         type: String,
-        select: false,
         required: true,
+        select: false,
         // minlength: 8,
         // match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     },

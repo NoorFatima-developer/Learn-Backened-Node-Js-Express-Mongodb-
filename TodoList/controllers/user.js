@@ -19,7 +19,6 @@ export const register = async(req, res) => {    // destruturing:
             message: "User already exists",
         })
     }
-
     // lkin password hash ki form mai secure krk bejna hai tu i will do this:
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -46,6 +45,7 @@ export const login = async(req, res) => {
     // destruturing:
     const {email, password} = req.body;
 
+    // meny models m user.js mai password field mai select false kea hai... islye yahan manually password set krna hoga..
     let user = await User.findOne({ email: email});
     if(!user){
         return res.status(400).json({
@@ -54,17 +54,7 @@ export const login = async(req, res) => {
         })
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    user = await User.create({
-        email,
-        password: hashedPassword,
-    })
-    res.json({
-        success: true,
-        message: "User login successfully",
-    })
-    sendCookie(user, res, "Login Successfully", 201)
+    const isMatch = await bcrypt.compare(password, user.password);
 };
 
 // get:
