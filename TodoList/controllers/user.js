@@ -91,7 +91,7 @@ export const getmyProfile = async(req, res) => {
     if(!token){
         return res.status(401).json({
             success: false,
-            message: "No token, authorization denied",
+            message: "Login First",
         })
     }
 
