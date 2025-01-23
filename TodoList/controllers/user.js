@@ -67,6 +67,25 @@ export const login = async(req, res) => {
 
 };
 
+
+// get:
+export const getmyProfile = async(req, res) => {
+    // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
+    // const {id} = req.query;
+    // or
+    // const id = req.query.id;
+    // or
+    // const id = req.params.id;
+    // lkin iss case mai me na query m dena chahti o na param mai tu i will use htis:
+    const id = "myid";
+    const userdata = await User.findById(id);
+
+    res.json({
+        success: true,
+        user: userdata,
+    })
+};
+
 // get:
 export const getAllUsers = async(req, res) => {
    const users = await User.find({});
@@ -82,13 +101,3 @@ export const getAllUsers = async(req, res) => {
 
 }
 
-// get:
-export const getmyProfile = async(req, res) => {
-    const {id} = req.query;
-    const userdata = await User.findById(id);
-
-    res.json({
-        success: true,
-        user: userdata,
-    })
-};
