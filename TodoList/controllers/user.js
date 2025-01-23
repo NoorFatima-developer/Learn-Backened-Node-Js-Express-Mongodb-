@@ -70,6 +70,7 @@ export const login = async(req, res) => {
 };
 
 // 01----way to access data by id...
+
 // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
 // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
     export const getmyProfileWithsimplycookiedecodedtoken = async(req, res) => {
@@ -114,6 +115,29 @@ export const getmyProfilebyAuthenticatedMiddleware = (req, res) => {
     res.status(200).json({
         success: true,
         user: req.user,
+    })
+};
+
+
+
+//get(Logout)-----------> 1 way...
+ 
+// export const logout = (req, res) => {
+//     res.clearCookie("token").json({
+//         success: true,
+//         message: "Logged out Successfully",
+//     })
+// };
+
+//get(Logout)-----------> 2 way...
+
+// "" -> iska mtlb hai empty krdo jo token dea hai osko. and expires mai new Date ka mtlb h abi k abi ossi time yani..
+export const logout = (req, res) => {
+    res.status(200)
+    .cookie("token","", { expires: new Date(Date.now())})
+    .json({
+        success: true,
+        message: "Logged out Successfully",
     })
 };
 
