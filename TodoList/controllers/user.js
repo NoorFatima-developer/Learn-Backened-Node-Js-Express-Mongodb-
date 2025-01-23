@@ -69,9 +69,6 @@ export const login = async(req, res) => {
 
 };
 
-
-
-
 // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
 // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
 export const getmyProfile = async(req, res) => {
