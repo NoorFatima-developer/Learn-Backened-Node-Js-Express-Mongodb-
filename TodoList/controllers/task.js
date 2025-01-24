@@ -27,11 +27,14 @@ export const getTasks = async (req, res, next) => {
 
     const userid = req.user._id;
     // find method puri array return krta hai islye we will use find instead of findbyid...
-    const tasks = await Task.find({user:userid})
+    const task = await Task.find({user:userid})
+
+    if(!task)
+        return res.status(404).json({success: false, message: "Task not found"})
 
     res.status(200).json({
         success: true,
-        tasks:tasks,
+        tasks:task,
     })
 }
 export const updateTasks = async (req, res, next) => {
@@ -54,7 +57,11 @@ export const deleteTasks = async (req, res, next) => {
 
     const task = await Task.findById(req.params.id)
 
-    await task.remove();
+    if(!task)
+        return 
+        res.status(404).json({success: false, message: "Task not found"})
+
+    await task.deleteOne();
 
     res.status(200).json({
         success: true,
