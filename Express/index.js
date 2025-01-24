@@ -10,7 +10,7 @@
 const express = require("express");
 // Path ko b import krna pryga...
 const Path = require("path")
-// import body-parser(but must instakk before impor) =>npm i body-parser
+// import body-parser(but must instakk before import) =>npm i body-parser
 // Body parser krny ka mqsd ye hai k m form submit hony pr jo data POST req k zareye url k andr dekh para hon osko m web browser pr b dekh skon...
 const bodyParser = require("body-parser")
 
