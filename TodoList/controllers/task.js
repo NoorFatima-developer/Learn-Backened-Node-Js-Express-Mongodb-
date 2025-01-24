@@ -40,11 +40,9 @@ export const getTasks = async (req, res, next) => {
 export const updateTasks = async (req, res, next) => {
 
     // const {id} = req.params;
-
     const task = await Task.findById(req.params.id)
-
     // ye line basically meny code chota krny klye ki hai and next app.js mai call hora hai..
-    if(!task) return next(new Error("Nice"))
+    if(!task) return next(new Error("Invalid Id..."))
     task.isCompleted = !task.isCompleted
     await task.save();
 
@@ -57,7 +55,7 @@ export const deleteTasks = async (req, res, next) => {
 
     const task = await Task.findById(req.params.id)
 
-        if(!task) return next(new Error("Nice"))
+        if(!task) return next(new Error("Invalid Id..."))
         await task.deleteOne();
 
         res.status(200).json({
