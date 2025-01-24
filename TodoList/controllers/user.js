@@ -6,6 +6,7 @@ import ErrorHandler from "../middlewares/error.js";
 
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
+  try {
     const { name, email, password} = req.body;
 
     // const user = await user.findOne({ email: email});
@@ -36,11 +37,15 @@ export const register = async(req, res) => {    // destruturing:
     // utilities k folder k andr features.js k andr..
 
     sendCookie(user, res, 201, "Registered Successfully")
+  } catch (error) {
+    next(error);
+  }
 };
 
 // post:(for login)
 export const login = async(req, res) => {    
-    // destruturing:
+    try {
+        // destruturing:
     const {email, password} = req.body;
 
     // meny models m user.js mai password field mai select false kea hai... islye yahan manually password set krna hoga..
@@ -66,7 +71,10 @@ export const login = async(req, res) => {
     }
 
     sendCookie(user, res, 200, `Welcome back, ${user.name}`)
-
+    } 
+        catch (error) {
+        next(error)
+    }
 };
 
 // 01----way to access data by id...
@@ -74,7 +82,8 @@ export const login = async(req, res) => {
 // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
 // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
     export const getmyProfileWithsimplycookiedecodedtoken = async(req, res) => {
-    // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
+    try {
+        // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
     // const {id} = req.query;
     // or
     // const id = req.query.id;
@@ -106,6 +115,9 @@ export const login = async(req, res) => {
         // user: "ahjbhhjjuuii",
         user:user,
     })
+    } catch (error) {
+        next(error)
+    }
 };
 
 // 02----way to access data by id...(using authenticated middleware)
@@ -117,7 +129,6 @@ export const getmyProfilebyAuthenticatedMiddleware = (req, res) => {
         user: req.user,
     })
 };
-
 
 
 //get(Logout)-----------> 1 way...
