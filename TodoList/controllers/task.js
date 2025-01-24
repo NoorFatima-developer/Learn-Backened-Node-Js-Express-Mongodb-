@@ -44,7 +44,7 @@ export const updateTasks = async (req, res, next) => {
     // const {id} = req.params;
     const task = await Task.findById(req.params.id)
     // ye line basically meny code chota krny klye ki hai and next app.js mai call hora hai..
-    if(!task) return next(new Error("Invalid Id..."))
+    if(!task) return next(new Error())
     task.isCompleted = !task.isCompleted
     await task.save();
 
@@ -60,7 +60,7 @@ export const deleteTasks = async (req, res, next) => {
     const task = await Task.findById(req.params.id)
 
         // amd aghr me new Error mai message ni deti tu mai wo msg middlware mai error file mai  b deskti o..
-        if(!task) return next(new Error())
+        if(!task) return next(new Error("Invalid Id..."))
         await task.deleteOne();
 
         res.status(200).json({
