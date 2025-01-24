@@ -31,13 +31,13 @@ app.get('/', (req, res) => {
 })
 
 // and ab m isko update or delete mai use krskti hon..
-// aleda file mai b krskty thy lkin meny ismai hi krlea hai,,,
-app.use((error, req, res, next) => {
-    console.log(error.message);
+// and code meny aleda file mai likha hai middleware k andr err.js k andr...
+app.use((err, req, res, next) => {
+    console.log(err.message);
     
      return res.status(404)
     .json({
         success: false, 
-        message: "error.message"
+        message: err.message
     })
 })

@@ -37,6 +37,8 @@ export const getTasks = async (req, res, next) => {
         tasks:task,
     })
 }
+
+// updateTask..
 export const updateTasks = async (req, res, next) => {
 
     // const {id} = req.params;
@@ -51,6 +53,8 @@ export const updateTasks = async (req, res, next) => {
         message: "Task updated successfully",
     })
 }
+
+// deleteTask...
 export const deleteTasks = async (req, res, next) => {
 
     const task = await Task.findById(req.params.id)
