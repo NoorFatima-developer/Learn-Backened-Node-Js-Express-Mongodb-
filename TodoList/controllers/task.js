@@ -36,14 +36,17 @@ export const getTasks = async (req, res, next) => {
 }
 export const updateTasks = async (req, res, next) => {
 
-    const {id} = req.params;
+    // const {id} = req.params;
 
-    const task = await Task.findById({id:id})
+    const task = await Task.findById(req.params.id)
 
     task.isCompleted = !task.isCompleted
 
+    await task.save();
+
     res.status(200).json({
         success: true,
+        message: "Task updated successfully",
     })
 }
 export const deleteTasks = async (req, res, next) => {
