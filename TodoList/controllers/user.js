@@ -146,10 +146,15 @@ export const getmyProfilebyAuthenticatedMiddleware = (req, res) => {
 // "" -> iska mtlb hai empty krdo jo token dea hai osko. and expires mai new Date ka mtlb h abi k abi ossi time yani..
 export const logout = (req, res) => {
     res.status(200)
-    .cookie("token","", { expires: new Date(Date.now())})
+    .cookie("token","", { 
+        expires: new Date(Date.now()),
+        sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
+        secure: process.env.NODE_ENV === "Development" ? false : true,
+    })
+    
     .json({
         success: true,
-        message: "Logged out Successfully",
+        message: req.user,
     })
 };
 
