@@ -4,7 +4,6 @@ import { sendCookie } from "../utils/features.js";
 import jwt from 'jsonwebtoken';
 import ErrorHandler from "../middlewares/error.js";
 
-
 // post:(for registration)
 export const register = async(req, res) => {    // destruturing:
     const { name, email, password} = req.body;

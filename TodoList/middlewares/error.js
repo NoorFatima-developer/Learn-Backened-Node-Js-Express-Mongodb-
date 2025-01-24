@@ -11,6 +11,7 @@ class ErrorHandler extends Error{
 // res.status wala jo h false or err.message wala ye hr file m use hora tha
 // islye meny code ko clean krdea or error wahan call krk  code yahan likh dea 
 // lkin m class sy krlogi tu or short o jyega islye meny oper errorhandler use krlea...
+// Error mai basically mai 1 chez add kr pari thie isleye meny errorHandler krlea hai ta k mai status code b add kr pao...
 export const errorMiddleware = (err, req, res, next) => {
     console.log(err.message);
     
