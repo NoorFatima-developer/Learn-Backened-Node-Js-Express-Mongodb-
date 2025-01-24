@@ -4,7 +4,7 @@ Welcome to the **Learn Backened** repository! 🎉 This project is a comprehensi
 
 ---
 
-## Features
+### Features
 
 - 🌟 Beginner-friendly examples
 - 🚀 Step-by-step instructions
@@ -22,5 +22,5 @@ git clone https://github.com/NoorFatima-developer/Learn-Backened-Node-Js-Express
 # Navigate to the project folder
 cd Learn-Backened-Node-Js-Express-Mongodb-
 
-# Install dependencies
+ Install dependencies
 npm install
