@@ -8,6 +8,7 @@ import taskRouter from "../TodoList/routes/task.js";
 // end mai jo env fil banae hai oska path b isk andr dena hai mjhy..
 import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
+import { errorMiddleware } from './middlewares/error.js';
 
 // export tb use krty hain jb next file mai import krna ho...
 export const app = express();
@@ -32,12 +33,4 @@ app.get('/', (req, res) => {
 
 // and ab m isko update or delete mai use krskti hon..
 // and code meny aleda file mai likha hai middleware k andr err.js k andr...
-app.use((err, req, res, next) => {
-    console.log(err.message);
-    
-     return res.status(404)
-    .json({
-        success: false, 
-        message: err.message
-    })
-})
+app.use(errorMiddleware)
