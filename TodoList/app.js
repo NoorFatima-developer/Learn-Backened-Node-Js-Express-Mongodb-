@@ -30,5 +30,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');  
 })
 
-res.status(404)
-.json({success: false, message: "Task not found"})
+// and ab m isko update or delete mai use krskti hon..
+// aleda file mai b krskty thy lkin meny ismai hi krlea hai,,,
+app.use((error, req, res, next) => {
+     return res.status(404)
+    .json({
+        success: false, 
+        message: "Task not found"})
+})
