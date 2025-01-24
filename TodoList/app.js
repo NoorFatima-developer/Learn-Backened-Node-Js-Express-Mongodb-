@@ -30,3 +30,5 @@ app.get('/', (req, res) => {
     res.send('Hello World!');  
 })
 
+res.status(404)
+.json({success: false, message: "Task not found"})
