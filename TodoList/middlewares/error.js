@@ -1,4 +1,4 @@
-// ab hum banayegy class errorhandler ki...
+// ab hum banayegy class errorhandler ki...(ye class islye banae hai ta kai aghr mai eror mai msg k sath statisCode b dena chahon tu mai wo b deskon...)
 
 class ErrorHandler extends Error{
     constructor(message, statusCode){
