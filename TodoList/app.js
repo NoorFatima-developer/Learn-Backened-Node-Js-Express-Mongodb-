@@ -9,6 +9,9 @@ import taskRouter from "../TodoList/routes/task.js";
 import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
 import { errorMiddleware } from './middlewares/error.js';
+// import cors for deployment:
+import cors from 'cors';
+
 
 // export tb use krty hain jb next file mai import krna ho...
 export const app = express();
