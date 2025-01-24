@@ -51,7 +51,13 @@ export const updateTasks = async (req, res, next) => {
 }
 export const deleteTasks = async (req, res, next) => {
 
+
+    const task = await Task.findById(req.params.id)
+
+    await task.remove();
+
     res.status(200).json({
         success: true,
+        message: "Task deleted successfully"
     })
 }
