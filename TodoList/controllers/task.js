@@ -59,7 +59,8 @@ export const deleteTasks = async (req, res, next) => {
 
     const task = await Task.findById(req.params.id)
 
-        if(!task) return next(new Error("Invalid Id..."))
+        // amd aghr me new Error mai message ni deti tu mai wo msg middlware mai error file mai  b deskti o..
+        if(!task) return next(new Error(""))
         await task.deleteOne();
 
         res.status(200).json({

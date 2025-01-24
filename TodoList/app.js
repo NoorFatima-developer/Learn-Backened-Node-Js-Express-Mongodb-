@@ -33,4 +33,6 @@ app.get('/', (req, res) => {
 
 // and ab m isko update or delete mai use krskti hon..
 // and code meny aleda file mai likha hai middleware k andr err.js k andr...
+
+// using error Middleware:
 app.use(errorMiddleware)
