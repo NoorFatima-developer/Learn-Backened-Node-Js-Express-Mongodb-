@@ -2,6 +2,7 @@ import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 import { sendCookie } from "../utils/features.js";
 import jwt from 'jsonwebtoken';
+import ErrorHandler from "../middlewares/error.js";
 
 
 // post:(for registration)
@@ -15,10 +16,7 @@ export const register = async(req, res) => {    // destruturing:
   
     let user = await User.findOne({ email: email});
     if(user){
-        return res.status(400).json({
-            success: false,
-            message: "User already exists",
-        })
+        return next(new ErrorHandler("User already Exists", 400))
     }
     // lkin password hash ki form mai secure krk bejna hai tu i will do this:
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -49,20 +47,23 @@ export const login = async(req, res) => {
     // meny models m user.js mai password field mai select false kea hai... islye yahan manually password set krna hoga..
     let user = await User.findOne({ email: email}).select("+password");
 
+    // if(!user){
+    //     return res.status(400).json({
+    //         success: false,
+    //         message: "Invalid email and password",
+    //     })
+    // }
+
+    // ye oper waly ko meny errorhandler sy krlea tu 1 line of code hogya...
+
     if(!user){
-        return res.status(400).json({
-            success: false,
-            message: "Invalid email and password",
-        })
+         return next(new ErrorHandler("Invalid Email and Password", 404))
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
     if(!isMatch){
-        return res.status(400).json({
-            success: false,
-            message: "Invalid email and password",
-        })
+      return next(new ErrorHandler("Invalid Email and Password", 404))
     }
 
     sendCookie(user, res, 200, `Welcome back, ${user.name}`)
