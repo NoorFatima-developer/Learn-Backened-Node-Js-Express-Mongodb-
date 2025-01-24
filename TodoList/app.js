@@ -23,7 +23,15 @@ config({
 // Middleware:(and middleware must use before userRouter)
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(
+    cors({
+        origin: [process.env.FRONTEND_URL],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
+        // frontend pr headers mai cookie or b data tbtk ni pohnchyg jbtk hum credentials: true set ni krygy
+        credentials: true
+    })
+)
 // and ab m isko update or delete mai use krskti hon..
 // and code meny aleda file mai likha hai middleware k andr err.js k andr...
 // using error Middleware:
