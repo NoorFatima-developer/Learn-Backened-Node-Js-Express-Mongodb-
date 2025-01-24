@@ -32,7 +32,6 @@ export const newTask = async (req, res, next) => {
     }
 }
 
-
 // getAllTasks...
 export const getTasks = async (req, res, next) => {
 

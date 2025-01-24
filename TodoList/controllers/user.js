@@ -37,6 +37,7 @@ export const register = async(req, res) => {    // destruturing:
     // utilities k folder k andr features.js k andr..
 
     sendCookie(user, res, 201, "Registered Successfully")
+    
   } catch (error) {
     next(error);
   }
