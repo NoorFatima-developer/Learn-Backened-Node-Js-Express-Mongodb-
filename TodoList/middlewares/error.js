@@ -1,3 +1,13 @@
+// ab hum banayegy class errorhandler ki...
+
+class ErrorHandler extends Error{
+    constructor(message, statusCode){
+        // super parent class ka constructor hota hai..
+        super(message)
+        this.statusCode = statusCode
+    }
+}
+
 export const errorMiddleware = (err, req, res, next) => {
     console.log(err.message);
     
@@ -8,3 +18,6 @@ export const errorMiddleware = (err, req, res, next) => {
         message: err.message,
     })
 }
+
+
+export default ErrorHandler;

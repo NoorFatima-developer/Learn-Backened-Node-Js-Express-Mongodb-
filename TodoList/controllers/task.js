@@ -1,5 +1,8 @@
 import Task from "../models/task.js";
 
+
+
+// New Task..
 export const newTask = async (req, res, next) => {
 
     const {title, description} = req.body
@@ -23,6 +26,8 @@ export const newTask = async (req, res, next) => {
     })
 }
 
+
+// getAllTasks...
 export const getTasks = async (req, res, next) => {
 
     const userid = req.user._id;
