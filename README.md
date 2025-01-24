@@ -26,3 +26,7 @@ cd Learn-Backened-Node-Js-Express-Mongodb-
 
 # Install dependencies
 npm install
+
+#### For Backend:
+```bash
+npm i
