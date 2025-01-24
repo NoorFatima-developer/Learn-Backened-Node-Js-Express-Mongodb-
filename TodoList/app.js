@@ -21,6 +21,11 @@ config({
 app.use(express.json());
 app.use(cookieParser());
 
+// and ab m isko update or delete mai use krskti hon..
+// and code meny aleda file mai likha hai middleware k andr err.js k andr...
+// using error Middleware:
+app.use(errorMiddleware)
+
 // use userRouter:(and router ko hum log use hi islye krty hain ta k hum log prefix add krskain)
 // jesy mai chahti o k routers/user k andr jutny b get post hain or onka jo b router hai hr 1 k start mai /users daldo 
 // iss sy ye hoga k mjy manually ja k ni add krna pryga automatically add o jyega islye meny wahan sbsy remove krk yahan add krdea hai...
@@ -30,9 +35,3 @@ app.use("/api/v1/tasks", taskRouter);
 app.get('/', (req, res) => {
     res.send('Hello World!');  
 })
-
-// and ab m isko update or delete mai use krskti hon..
-// and code meny aleda file mai likha hai middleware k andr err.js k andr...
-
-// using error Middleware:
-app.use(errorMiddleware)

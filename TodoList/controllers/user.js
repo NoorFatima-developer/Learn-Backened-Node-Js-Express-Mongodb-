@@ -152,18 +152,3 @@ export const logout = (req, res) => {
     })
 };
 
-// get:
-export const getAllUsers = async(req, res) => {
-   const users = await User.find({});
-
-   //aghr meny postman mai params mai name keyword rkha hai will use keyword otherwise whi name jo rkha hai...
-   const keyword = req.query.keyword;
-   console.log(keyword);
-
-   res.json({
-    success: true,
-    users: users,
-   })
-
-}
-
