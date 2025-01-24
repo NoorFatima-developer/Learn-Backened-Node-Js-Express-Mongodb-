@@ -36,6 +36,12 @@ export const getTasks = async (req, res, next) => {
 }
 export const updateTasks = async (req, res, next) => {
 
+    const {id} = req.params;
+
+    const task = await Task.findById({id:id})
+
+    task.isCompleted = !task.isCompleted
+
     res.status(200).json({
         success: true,
     })
