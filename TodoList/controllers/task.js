@@ -1,3 +1,4 @@
+import ErrorHandler from "../middlewares/error.js";
 import Task from "../models/task.js";
 
 
@@ -65,7 +66,9 @@ export const deleteTasks = async (req, res, next) => {
     const task = await Task.findById(req.params.id)
 
         // amd aghr me new Error mai message ni deti tu mai wo msg middlware mai error file mai  b deskti o..
-        if(!task) return next(new Error("Invalid Id..."))
+        // if(!task) return next(new Error("Invalid Id..."))
+        // aghr meny statuscode b use krna hao error mai tu i will use errorhandler class in middleware in error.js...
+        if(!task) return next(new ErrorHandler("Task not found", 404))
         await task.deleteOne();
 
         res.status(200).json({
