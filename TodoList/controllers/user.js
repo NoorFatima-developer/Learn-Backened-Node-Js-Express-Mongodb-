@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import ErrorHandler from "../middlewares/error.js";
 
 // post:(for registration)
-export const register = async(req, res) => {    // destruturing:
+export const register = async(req, res, next) => {    // destruturing:
   try {
     const { name, email, password} = req.body;
 
@@ -44,7 +44,7 @@ export const register = async(req, res) => {    // destruturing:
 };
 
 // post:(for login)
-export const login = async(req, res) => {    
+export const login = async(req, res, next) => {    
     try {
         // destruturing:
     const {email, password} = req.body;
@@ -82,7 +82,7 @@ export const login = async(req, res) => {
 
 // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
 // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
-    export const getmyProfileWithsimplycookiedecodedtoken = async(req, res) => {
+    export const getmyProfileWithsimplycookiedecodedtoken = async(req, res, next) => {
     try {
         // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
     // const {id} = req.query;
